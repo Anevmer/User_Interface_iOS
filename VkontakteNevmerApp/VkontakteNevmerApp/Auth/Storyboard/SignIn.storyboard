@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lwu-99-UCP">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Sign In View Controller-->
+        <scene sceneID="HBF-hy-4a4">
+            <objects>
+                <viewController storyboardIdentifier="SignInViewController" id="lwu-99-UCP" customClass="SignInViewController" customModule="VkontakteNevmerApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kYq-jq-H5t">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yQj-EB-av3">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pmy-uU-gH8">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="ECl-dM-wjY">
+                                                <rect key="frame" x="16" y="80" width="288" height="444"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4w0-YV-Prr">
+                                                        <rect key="frame" x="0.0" y="0.0" width="288" height="144"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vkIcon" translatesAutoresizingMaskIntoConstraints="NO" id="8nu-ig-iTl">
+                                                                <rect key="frame" x="72" y="0.0" width="144" height="144"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="8nu-ig-iTl" secondAttribute="height" id="EHt-J6-eMS"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstItem="8nu-ig-iTl" firstAttribute="top" secondItem="4w0-YV-Prr" secondAttribute="top" id="BTj-ng-DFA"/>
+                                                            <constraint firstItem="8nu-ig-iTl" firstAttribute="centerX" secondItem="4w0-YV-Prr" secondAttribute="centerX" id="VcX-9M-8yf"/>
+                                                            <constraint firstAttribute="bottom" secondItem="8nu-ig-iTl" secondAttribute="bottom" id="azg-kS-umV"/>
+                                                            <constraint firstItem="8nu-ig-iTl" firstAttribute="width" secondItem="4w0-YV-Prr" secondAttribute="width" multiplier="0.5" id="roL-Fd-hAv"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c0X-qr-Fex">
+                                                        <rect key="frame" x="0.0" y="169" width="288" height="60"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Логин" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zhE-OI-ewX">
+                                                                <rect key="frame" x="0.0" y="0.0" width="48.5" height="20"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="20" id="Mdx-yS-ZuE"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IPC-wb-zgt" customClass="TextField" customModule="VkontakteNevmerApp" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="20" width="288" height="40"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="40" id="GaJ-Wl-VpP"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                            </textField>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstItem="zhE-OI-ewX" firstAttribute="top" secondItem="c0X-qr-Fex" secondAttribute="top" id="28x-wX-48W"/>
+                                                            <constraint firstItem="IPC-wb-zgt" firstAttribute="top" secondItem="zhE-OI-ewX" secondAttribute="bottom" id="51W-gp-uFg"/>
+                                                            <constraint firstItem="zhE-OI-ewX" firstAttribute="leading" secondItem="c0X-qr-Fex" secondAttribute="leading" id="BP2-nU-Opp"/>
+                                                            <constraint firstItem="IPC-wb-zgt" firstAttribute="leading" secondItem="c0X-qr-Fex" secondAttribute="leading" id="T45-zR-kE7"/>
+                                                            <constraint firstAttribute="bottom" secondItem="IPC-wb-zgt" secondAttribute="bottom" id="cK7-Mq-6hC"/>
+                                                            <constraint firstAttribute="trailing" secondItem="IPC-wb-zgt" secondAttribute="trailing" id="iYT-vZ-lAE"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rDa-Pd-VJX">
+                                                        <rect key="frame" x="0.0" y="254" width="288" height="60"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Пароль" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="58K-zR-Hjh">
+                                                                <rect key="frame" x="0.0" y="0.0" width="59" height="20"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="20" id="mKW-P0-465"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="99s-ww-ZYb" customClass="TextField" customModule="VkontakteNevmerApp" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="20" width="288" height="40"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="40" id="Q05-ou-0xs"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                            </textField>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstItem="58K-zR-Hjh" firstAttribute="top" secondItem="rDa-Pd-VJX" secondAttribute="top" id="3iS-SM-z5c"/>
+                                                            <constraint firstItem="58K-zR-Hjh" firstAttribute="leading" secondItem="rDa-Pd-VJX" secondAttribute="leading" id="C1a-gk-Y7a"/>
+                                                            <constraint firstAttribute="bottom" secondItem="99s-ww-ZYb" secondAttribute="bottom" id="Dak-xo-8dR"/>
+                                                            <constraint firstItem="99s-ww-ZYb" firstAttribute="top" secondItem="58K-zR-Hjh" secondAttribute="bottom" id="OtJ-jz-6SN"/>
+                                                            <constraint firstAttribute="trailing" secondItem="99s-ww-ZYb" secondAttribute="trailing" id="pL2-Lr-6fg"/>
+                                                            <constraint firstItem="99s-ww-ZYb" firstAttribute="leading" secondItem="rDa-Pd-VJX" secondAttribute="leading" id="vy3-7k-mxX"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tps-5t-w72" customClass="PrimaryButton" customModule="VkontakteNevmerApp" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="339" width="288" height="40"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="Km5-Qe-oce"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <connections>
+                                                            <action selector="signInButtonTapped:" destination="lwu-99-UCP" eventType="touchUpInside" id="D7u-3C-Hr5"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tQE-yT-clq" customClass="SecondaryButton" customModule="VkontakteNevmerApp" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="404" width="288" height="40"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="dfU-qd-Bof"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <connections>
+                                                            <action selector="signUpButtonTapped:" destination="lwu-99-UCP" eventType="touchUpInside" id="J9q-IE-NT9"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="ECl-dM-wjY" firstAttribute="top" secondItem="Pmy-uU-gH8" secondAttribute="top" constant="80" id="D7s-IM-MQ0"/>
+                                            <constraint firstItem="ECl-dM-wjY" firstAttribute="leading" secondItem="Pmy-uU-gH8" secondAttribute="leading" constant="16" id="aK9-cB-Awb"/>
+                                            <constraint firstAttribute="trailing" secondItem="ECl-dM-wjY" secondAttribute="trailing" constant="16" id="hIx-bS-ama"/>
+                                            <constraint firstAttribute="bottom" secondItem="ECl-dM-wjY" secondAttribute="bottom" id="kb1-ff-H2s"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Pmy-uU-gH8" firstAttribute="centerX" secondItem="yQj-EB-av3" secondAttribute="centerX" id="4NS-Um-J59"/>
+                                    <constraint firstItem="Pmy-uU-gH8" firstAttribute="leading" secondItem="yQj-EB-av3" secondAttribute="leading" id="ATQ-LT-yL6"/>
+                                    <constraint firstAttribute="bottom" secondItem="Pmy-uU-gH8" secondAttribute="bottom" id="PZ8-4b-ofW"/>
+                                    <constraint firstItem="Pmy-uU-gH8" firstAttribute="top" secondItem="yQj-EB-av3" secondAttribute="top" id="VAT-1v-LzQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="Pmy-uU-gH8" secondAttribute="trailing" id="uoV-yc-v69"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="IGa-6q-UjS"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="IGa-6q-UjS" firstAttribute="bottom" secondItem="yQj-EB-av3" secondAttribute="bottom" id="AJh-Fg-7In"/>
+                            <constraint firstItem="IGa-6q-UjS" firstAttribute="trailing" secondItem="yQj-EB-av3" secondAttribute="trailing" id="L5w-If-XFw"/>
+                            <constraint firstItem="yQj-EB-av3" firstAttribute="leading" secondItem="IGa-6q-UjS" secondAttribute="leading" id="b0a-mq-yKF"/>
+                            <constraint firstItem="yQj-EB-av3" firstAttribute="top" secondItem="IGa-6q-UjS" secondAttribute="top" id="e4Y-kA-vKo"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="loginTextField" destination="IPC-wb-zgt" id="9ST-EO-kFJ"/>
+                        <outlet property="loginTitleLabel" destination="zhE-OI-ewX" id="Tfb-Bj-7gR"/>
+                        <outlet property="passwordTextField" destination="99s-ww-ZYb" id="DFV-Ir-aWe"/>
+                        <outlet property="passwordTitleLabel" destination="58K-zR-Hjh" id="emi-ep-TZv"/>
+                        <outlet property="signInButton" destination="Tps-5t-w72" id="cvq-fM-690"/>
+                        <outlet property="signUpButton" destination="tQE-yT-clq" id="A4S-Ps-dXj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p46-5P-TKY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-857" y="-94"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="vkIcon" width="2029" height="1151"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
