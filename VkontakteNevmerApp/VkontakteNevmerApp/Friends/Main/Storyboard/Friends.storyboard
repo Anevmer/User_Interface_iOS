@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ODK-cX-JZQ">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Friends View Controller-->
+        <scene sceneID="yxf-Vh-OH1">
+            <objects>
+                <viewController id="p8b-WF-dAn" customClass="FriendsViewController" customModule="VkontakteNevmerApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Rqb-QF-Jra">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2kP-nb-TEc">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="p8b-WF-dAn" id="PqE-bz-zpI"/>
+                                    <outlet property="delegate" destination="p8b-WF-dAn" id="qGg-tG-Xyh"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="BDd-nz-1f8"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="2kP-nb-TEc" firstAttribute="leading" secondItem="BDd-nz-1f8" secondAttribute="leading" id="K66-FL-FyT"/>
+                            <constraint firstItem="BDd-nz-1f8" firstAttribute="bottom" secondItem="2kP-nb-TEc" secondAttribute="bottom" id="hTZ-5e-jXi"/>
+                            <constraint firstItem="BDd-nz-1f8" firstAttribute="trailing" secondItem="2kP-nb-TEc" secondAttribute="trailing" id="xry-cT-ey0"/>
+                            <constraint firstItem="2kP-nb-TEc" firstAttribute="top" secondItem="BDd-nz-1f8" secondAttribute="top" id="y91-Qe-csD"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="XbY-Do-yCW"/>
+                    <connections>
+                        <outlet property="tableView" destination="2kP-nb-TEc" id="goF-UG-sm3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MCy-fd-w85" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="905.79710144927549" y="37.5"/>
+        </scene>
+        <!--Друзья-->
+        <scene sceneID="QND-a3-RHf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ODK-cX-JZQ" customClass="NavigationController" customModule="VkontakteNevmerApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Друзья" image="person.2" catalog="system" id="Qla-hK-wp1"/>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JES-pK-2RR">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="p8b-WF-dAn" kind="relationship" relationship="rootViewController" id="SDp-UK-slx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qqT-hy-Ujh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4.3478260869565224" y="37.5"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="person.2" catalog="system" width="128" height="81"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

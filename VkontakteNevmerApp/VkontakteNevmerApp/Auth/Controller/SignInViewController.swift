@@ -20,7 +20,7 @@ class SignInViewController: UIViewController {
     
     // MARK: Private properties
     
-    let loginConstant = "ANevmer"
+    let loginConstant = "Admin"
     let passwordConstant = "Admin"
     
     // MARK: Public properties
@@ -32,6 +32,11 @@ class SignInViewController: UIViewController {
 
         initializeSetup()
         setupText()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        loginTextField.text = ""
+        passwordTextField.text = ""
     }
     
     // MARK: Actions
@@ -47,6 +52,10 @@ class SignInViewController: UIViewController {
     // MARK: Private methods
     
     private func initializeSetup() {
+        if let token = UserDefaults.standard.string(forKey: "AccessToken"), token == "token" {
+            showMain()
+        }
+        navigationController?.navigationBar.isHidden = true
         passwordTextField.isSecureTextEntry = true
         loginTextField.delegate = self
         passwordTextField.delegate = self
@@ -57,8 +66,10 @@ class SignInViewController: UIViewController {
            let password = passwordTextField.text,
            login == loginConstant,
            password == passwordConstant {
+            showMain()
+            UserDefaults.standard.set("token", forKey: "AccessToken")
+            UserDefaults.standard.synchronize()
             
-            print ("SUCCESS")
         }
         else {
             loginTextField.setErrorStyle()
@@ -67,6 +78,11 @@ class SignInViewController: UIViewController {
             alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
             present(alertController, animated: true, completion: nil)
         }
+    }
+    
+    private func showMain() {
+        let mainTC = UIStoryboard(name: "Navigation", bundle: nil).instantiateViewController(withIdentifier: "MainTabBarController") as! MainTabBarController
+        self.navigationController?.pushViewController(mainTC, animated: true)
     }
 }
 
@@ -103,6 +119,7 @@ private extension SignInViewController {
         passwordTitleLabel.text = "Пароль"
         signInButton.setTitle("Войти", for: .normal)
         signUpButton.setTitle("Зарегистрироваться", for: .normal)
+        
     }
 }
 
