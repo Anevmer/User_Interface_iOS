@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lwu-99-UCP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0di-kt-Afv">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yQj-EB-av3">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pmy-uU-gH8">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
@@ -157,6 +157,7 @@
                             <constraint firstItem="yQj-EB-av3" firstAttribute="top" secondItem="IGa-6q-UjS" secondAttribute="top" id="e4Y-kA-vKo"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="5HO-Sz-kmo"/>
                     <connections>
                         <outlet property="loginTextField" destination="IPC-wb-zgt" id="9ST-EO-kFJ"/>
                         <outlet property="loginTitleLabel" destination="zhE-OI-ewX" id="Tfb-Bj-7gR"/>
@@ -168,7 +169,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p46-5P-TKY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-857" y="-94"/>
+            <point key="canvasLocation" x="138.75" y="-94.014084507042256"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Nfi-mT-sbC">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0di-kt-Afv" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6PS-4A-JxB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="lwu-99-UCP" kind="relationship" relationship="rootViewController" id="sXZ-cD-6sS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0VO-sp-DhQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-858.75" y="-94.014084507042256"/>
         </scene>
     </scenes>
     <resources>
