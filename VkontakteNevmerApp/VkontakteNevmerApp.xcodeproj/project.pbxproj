@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D830A7E226D57211005286D5 /* UserPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D830A7E026D57211005286D5 /* UserPhotoCollectionViewCell.swift */; };
+		D830A7E326D57211005286D5 /* UserPhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D830A7E126D57211005286D5 /* UserPhotoCollectionViewCell.xib */; };
+		D830A7E926D573E7005286D5 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D830A7E826D573E7005286D5 /* UserProfile.swift */; };
+		D830A7ED26D5740A005286D5 /* Community.swift in Sources */ = {isa = PBXBuildFile; fileRef = D830A7EC26D5740A005286D5 /* Community.swift */; };
+		D830A7F726D57970005286D5 /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D830A7F626D57970005286D5 /* DataBase.swift */; };
+		D830A7FC26D588E5005286D5 /* UserPhotoCollectionCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D830A7FB26D588E5005286D5 /* UserPhotoCollectionCellModel.swift */; };
 		D8545C6826C5AA410061F397 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8545C6726C5AA410061F397 /* AppDelegate.swift */; };
 		D8545C6A26C5AA410061F397 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8545C6926C5AA410061F397 /* SceneDelegate.swift */; };
 		D8545C6C26C5AA410061F397 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8545C6B26C5AA410061F397 /* ViewController.swift */; };
@@ -42,6 +48,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D830A7E026D57211005286D5 /* UserPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		D830A7E126D57211005286D5 /* UserPhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserPhotoCollectionViewCell.xib; sourceTree = "<group>"; };
+		D830A7E826D573E7005286D5 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		D830A7EC26D5740A005286D5 /* Community.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Community.swift; sourceTree = "<group>"; };
+		D830A7F626D57970005286D5 /* DataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
+		D830A7FB26D588E5005286D5 /* UserPhotoCollectionCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPhotoCollectionCellModel.swift; sourceTree = "<group>"; };
 		D8545C6426C5AA410061F397 /* VkontakteNevmerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VkontakteNevmerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8545C6726C5AA410061F397 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8545C6926C5AA410061F397 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +101,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D830A7E526D573B6005286D5 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				D830A7F526D57956005286D5 /* DataBase */,
+				D830A7E626D573C2005286D5 /* Model */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		D830A7E626D573C2005286D5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D830A7E826D573E7005286D5 /* UserProfile.swift */,
+				D830A7EC26D5740A005286D5 /* Community.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D830A7F526D57956005286D5 /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+				D830A7F626D57970005286D5 /* DataBase.swift */,
+			);
+			path = DataBase;
+			sourceTree = "<group>";
+		};
 		D8545C5B26C5AA410061F397 = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				D8545C7C26C5AA680061F397 /* Base */,
+				D830A7E526D573B6005286D5 /* Service */,
 				D8545C7D26C5AA6F0061F397 /* Auth */,
 				D875BDA326D3989300DEDBEE /* Navigation */,
 				D875BDAC26D39C0000DEDBEE /* Friends */,
@@ -287,6 +326,7 @@
 		D875BDB626D39C6E00DEDBEE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D830A7FB26D588E5005286D5 /* UserPhotoCollectionCellModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -294,6 +334,8 @@
 		D875BDB726D39C7A00DEDBEE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D830A7E026D57211005286D5 /* UserPhotoCollectionViewCell.swift */,
+				D830A7E126D57211005286D5 /* UserPhotoCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -475,6 +517,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D875BDD726D3ADD000DEDBEE /* Community.storyboard in Resources */,
+				D830A7E326D57211005286D5 /* UserPhotoCollectionViewCell.xib in Resources */,
 				D875BDB926D39C9600DEDBEE /* Friends.storyboard in Resources */,
 				D8545C8326C5AC110061F397 /* SignIn.storyboard in Resources */,
 				D875BDF126D3BD2E00DEDBEE /* FriendPhotos.storyboard in Resources */,
@@ -511,11 +554,16 @@
 				D875BDFC26D3BF7500DEDBEE /* CommunitySearchViewController.swift in Sources */,
 				D8545C6826C5AA410061F397 /* AppDelegate.swift in Sources */,
 				D875BDC926D39EEA00DEDBEE /* FriendTableCellModel.swift in Sources */,
+				D830A7FC26D588E5005286D5 /* UserPhotoCollectionCellModel.swift in Sources */,
 				D8545C6A26C5AA410061F397 /* SceneDelegate.swift in Sources */,
+				D830A7E926D573E7005286D5 /* UserProfile.swift in Sources */,
 				D875BDE526D3B29D00DEDBEE /* CommunityTableCellModel.swift in Sources */,
 				D8545C8E26C5B77E0061F397 /* UIColor.swift in Sources */,
 				D875BDDF26D3B26300DEDBEE /* CommunityTableViewCell.swift in Sources */,
+				D830A7ED26D5740A005286D5 /* Community.swift in Sources */,
 				D875BDEE26D3B79B00DEDBEE /* SettingsViewController.swift in Sources */,
+				D830A7F726D57970005286D5 /* DataBase.swift in Sources */,
+				D830A7E226D57211005286D5 /* UserPhotoCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
