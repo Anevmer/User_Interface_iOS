@@ -16,6 +16,6 @@ class FriendTableCellModel: Entity {
     init (user: UserProfile) {
         self.user = user
         self.fullName = user.name + " " + user.surname
-        self.imageName = user.avatarName
+        self.imageName = user.avatarName == "" ? nil : user.avatarName
     }
 }

@@ -94,6 +94,8 @@ private extension FriendsViewController {
 
 extension FriendsViewController {
     func loadData() {
+        let  me = allUsers.first(where: {$0.id == currentUserId})
+        title = me?.name
         let myFriends = allUsers.filter({$0.friendsId.contains(currentUserId)})
         self.friends = myFriends.map({FriendTableCellModel(user: $0)})
         

@@ -97,10 +97,10 @@ private extension CommunityViewController {
 
 extension CommunityViewController {
     func loadData() {
-        let community1 = CommunityTableCellModel(fullName: "Твой город")
-        let community2 = CommunityTableCellModel(fullName: "Фильмы и сериалы")
         
-        communities = [community1, community2]
+        let myCommunities = allCommunities.filter({$0.communityMembersId.contains(currentUserId)})
+        communities = myCommunities.map({CommunityTableCellModel(community: $0)})
+        
         tableView.reloadData()
     }
 }

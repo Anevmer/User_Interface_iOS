@@ -12,6 +12,7 @@ class CommunityTableViewCell: UITableViewCell {
     // MARK: Outlets
     
     @IBOutlet weak var roundedBackgroundView: UIView!
+    @IBOutlet weak var avataImageView: UIImageView!
     @IBOutlet weak var fullNameLabel: UILabel!
     
     // MARK: Public properties
@@ -30,6 +31,8 @@ class CommunityTableViewCell: UITableViewCell {
     func configure(withEntity entity: Entity) {
         if let model = entity as? CommunityTableCellModel {
             fullNameLabel.text = model.fullName
+            avataImageView.image = UIImage(named: model.avatarName)
+            
         }
     }
 

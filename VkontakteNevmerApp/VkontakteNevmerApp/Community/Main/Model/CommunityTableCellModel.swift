@@ -10,8 +10,10 @@ import Foundation
 class CommunityTableCellModel: Entity {
     
     var fullName: String
+    var avatarName: String
     
-    init(fullName: String) {
-        self.fullName = fullName
+    init(community: Community) {
+        fullName = community.name
+        avatarName = community.avatarName
     }
 }

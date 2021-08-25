@@ -41,18 +41,41 @@
                                     <outlet property="delegate" destination="CeK-qP-AP9" id="PRo-ph-AeA"/>
                                 </connections>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MP1-3L-R3Y">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="У друга нет фотографий" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TnY-5z-jIQ">
+                                        <rect key="frame" x="30" y="397.5" width="354" height="23"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="TnY-5z-jIQ" firstAttribute="centerX" secondItem="MP1-3L-R3Y" secondAttribute="centerX" id="AWF-30-GaX"/>
+                                    <constraint firstItem="TnY-5z-jIQ" firstAttribute="leading" secondItem="MP1-3L-R3Y" secondAttribute="leading" constant="30" id="bMV-Z3-Hfs"/>
+                                    <constraint firstAttribute="trailing" secondItem="TnY-5z-jIQ" secondAttribute="trailing" constant="30" id="fMu-NP-pcm"/>
+                                    <constraint firstItem="TnY-5z-jIQ" firstAttribute="centerY" secondItem="MP1-3L-R3Y" secondAttribute="centerY" id="nfy-ao-OrU"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aiV-gH-p66"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="aiV-gH-p66" firstAttribute="trailing" secondItem="gPu-aO-9QV" secondAttribute="trailing" id="1We-ii-G0w"/>
+                            <constraint firstItem="MP1-3L-R3Y" firstAttribute="top" secondItem="aiV-gH-p66" secondAttribute="top" id="7Lp-WM-uZa"/>
+                            <constraint firstItem="aiV-gH-p66" firstAttribute="bottom" secondItem="MP1-3L-R3Y" secondAttribute="bottom" id="KBj-Cb-YDK"/>
                             <constraint firstItem="gPu-aO-9QV" firstAttribute="top" secondItem="aiV-gH-p66" secondAttribute="top" id="Xci-4Z-PPD"/>
                             <constraint firstItem="aiV-gH-p66" firstAttribute="bottom" secondItem="gPu-aO-9QV" secondAttribute="bottom" id="Yw5-mA-OsZ"/>
+                            <constraint firstItem="aiV-gH-p66" firstAttribute="trailing" secondItem="MP1-3L-R3Y" secondAttribute="trailing" id="anz-Z5-3RJ"/>
+                            <constraint firstItem="MP1-3L-R3Y" firstAttribute="leading" secondItem="aiV-gH-p66" secondAttribute="leading" id="nxi-Um-3xh"/>
                             <constraint firstItem="gPu-aO-9QV" firstAttribute="leading" secondItem="aiV-gH-p66" secondAttribute="leading" id="o0r-b2-QY6"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="gPu-aO-9QV" id="kkr-jA-UAF"/>
+                        <outlet property="placeholderView" destination="MP1-3L-R3Y" id="MBm-wc-nHO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FfT-fZ-wZ7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -12,6 +12,7 @@ class FriendPhotosViewController: UIViewController {
     // MARK: Outlets
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var placeholderView: UIView!
     
     // MARK: Private properties
     
@@ -61,6 +62,7 @@ extension FriendPhotosViewController {
         if let user = user {
             title = user.name + " " + user.surname
             userPhotos = user.photoNames.map({UserPhotoCollectionCellModel(photoName: $0)})
+            placeholderView.isHidden = userPhotos.count == 0 ? false : true
             collectionView.reloadData()
         }
     }
