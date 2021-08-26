@@ -9,7 +9,7 @@ import Foundation
 
 var currentUserId = 132
 
-let allUsers = [
+private var allUsers = [
     UserProfile(id: 123, name: "Иван", surname: "Петров", friendIds: [132, 130], communityIds: [225, 227, 232], avatarName: "user5", photoNames: ["photo1", "photo2"]),
     UserProfile(id: 124, name: "Петр", surname: "Синий", friendIds: [132, 130], communityIds: [223, 224, 227], avatarName: "user7", photoNames: ["photo1"]),
     UserProfile(id: 125, name: "Сергей", surname: "Иванов", friendIds: [132, 130], communityIds: [], avatarName: "user6", photoNames: ["photo1", "photo2", "photo3"]),
@@ -22,7 +22,7 @@ let allUsers = [
     UserProfile(id: 132, name: "Виктор", surname: "Черный", friendIds: [123, 124, 125, 126], communityIds: [224, 229, 231], avatarName: "user2", photoNames: []),
 ]
 
-let allCommunities = [
+private var allCommunities = [
     Community(id: 223, name: "Гости нашего города", avatarName: "group2", membersId: [124, 128]),
     Community(id: 224, name: "Музыка со вкусом", avatarName: "group4", membersId: [132, 124]),
     Community(id: 225, name: "Смотрим кинчик", avatarName: "group3", membersId: [123, 127]),
@@ -34,6 +34,71 @@ let allCommunities = [
     Community(id: 231, name: "Красивые обои на твой телефон", avatarName: "group2", membersId: [132, 131]),
     Community(id: 232, name: "Игрули", avatarName: "group1", membersId: [123, 129]),
 ]
+
+func getMyProfile() -> UserProfile? {
+    guard let currentUserProfile = allUsers.first(where: { $0.id == currentUserId}) else { return nil }
+    
+    return currentUserProfile
+}
+
+func getProfileWithId(userId: Int) -> UserProfile? {
+    guard let currentUserProfile = allUsers.first(where: { $0.id == userId}) else { return nil }
+    
+    return currentUserProfile
+}
+
+func getMyFriends() -> [UserProfile] {
+    return allUsers.filter({$0.friendsId.contains(currentUserId)})
+}
+
+func getCommunityWithId(communityId: Int) -> Community? {
+    guard let community = allCommunities.first(where: { $0.id == communityId}) else { return nil }
+    
+    return community
+}
+
+func getMyCommunities() -> [Community] {
+    return allCommunities.filter({$0.communityMembersId.contains(currentUserId)})
+}
+
+func getOthersCommunities() -> [Community] {
+    return allCommunities.filter({!$0.communityMembersId.contains(currentUserId)})
+}
+
+func addedCommunityToMyProfile(withCommunityId communityId: Int) -> Bool {
+    guard let profile = getMyProfile(),
+          let community = getCommunityWithId(communityId: communityId),
+          let userIndex = allUsers.firstIndex(where: {$0.id == profile.id}),
+          let communityIndex = allCommunities.firstIndex(where: {$0.id == communityId})
+          else {
+        return false
+    }
+    profile.communitiesId.append(communityId)
+    community.communityMembersId.append(profile.id)
+    
+    allUsers[userIndex] = profile
+    allCommunities[communityIndex] = community
+    return true
+}
+
+func removeCommunityFromMyProfile(withCommunityId communityId: Int) -> Bool {
+    guard let profile = getMyProfile(),
+          let community = getCommunityWithId(communityId: communityId),
+          let userIndex = allUsers.firstIndex(where: {$0.id == profile.id}),
+          let communityIndex = allCommunities.firstIndex(where: {$0.id == communityId}),
+          let profileIdFromCommIndex = community.communityMembersId.firstIndex(where: {$0 == profile.id}),
+          let communityIdFromUserIndex = profile.communitiesId.firstIndex(where: {$0 == communityId})
+          else {
+        return false
+    }
+
+    profile.communitiesId.remove(at: communityIdFromUserIndex)
+    community.communityMembersId.remove(at: profileIdFromCommIndex)
+    
+    allUsers[userIndex] = profile
+    allCommunities[communityIndex] = community
+    return true
+}
 
 func loginUser(withLogin login: String, andPass password: String) -> Int? {
     if login == "Admin", password == "Admin" {

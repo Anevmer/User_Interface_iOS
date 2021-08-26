@@ -12,6 +12,7 @@ class CommunityViewController: UIViewController {
     // MARK: Outlets
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var placeholderView: UIView!
     
     // MARK: Private properties
     
@@ -28,8 +29,12 @@ class CommunityViewController: UIViewController {
         initializeSetup()
         applyStyle()
         setupText()
-        loadData()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadData()
     }
         
     // MARK: Private methods
@@ -77,6 +82,30 @@ extension CommunityViewController: UITableViewDelegate {
     }
 }
 
+// MARK: Extension for CommunityTableViewCellDelegate
+
+extension CommunityViewController: CommunityTableViewCellDelegate {
+    func communityTableViewCellMoreButton(_ cell: CommunityTableViewCell) {
+        guard let indexPath = tableView.indexPath(for: cell) else { return }
+        let community = communities[indexPath.row] as! CommunityTableCellModel
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        alertController.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
+        alertController.addAction(UIAlertAction(title: "Отписаться", style: .destructive, handler: { _ in
+            self.showActivityIndicator()
+            if removeCommunityFromMyProfile(withCommunityId: community.id) {
+                self.hideActivityIndicator()
+                self.loadData()
+                print ("success")
+            }
+            else {
+                self.hideActivityIndicator()
+                print("error")
+            }
+        }))
+        present(alertController, animated: true, completion: nil)
+    }
+}
+
 // MARK: Extension for styling
 
 private extension CommunityViewController {
@@ -98,9 +127,9 @@ private extension CommunityViewController {
 extension CommunityViewController {
     func loadData() {
         
-        let myCommunities = allCommunities.filter({$0.communityMembersId.contains(currentUserId)})
-        communities = myCommunities.map({CommunityTableCellModel(community: $0)})
-        
+        let myCommunities = getMyCommunities()
+        communities = myCommunities.map({CommunityTableCellModel(community: $0, delegate: self)})
+        placeholderView.isHidden = communities.count != 0
         tableView.reloadData()
     }
 }

@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol CommunityTableViewCellDelegate: class {
+    func communityTableViewCellMoreButton(_ cell: CommunityTableViewCell)
+}
+
 class CommunityTableViewCell: UITableViewCell {
     
     // MARK: Outlets
@@ -17,6 +21,8 @@ class CommunityTableViewCell: UITableViewCell {
     
     // MARK: Public properties
     
+    weak var delegate: CommunityTableViewCellDelegate?
+    
     // MARK: Private properties
     
     // MARK: Lifecycle
@@ -25,11 +31,18 @@ class CommunityTableViewCell: UITableViewCell {
         super.awakeFromNib()
         applyStyle()
     }
+    
+    // MARK: Actions
+    
+    @IBAction func moreButtonTapped(_ sender: UIButton) {
+        delegate?.communityTableViewCellMoreButton(self)
+    }
 
     // MARK: Public methods
     
     func configure(withEntity entity: Entity) {
         if let model = entity as? CommunityTableCellModel {
+            delegate = model.delegate
             fullNameLabel.text = model.fullName
             avataImageView.image = UIImage(named: model.avatarName)
             

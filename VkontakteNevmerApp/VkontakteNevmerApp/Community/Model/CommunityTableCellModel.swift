@@ -9,10 +9,14 @@ import Foundation
 
 class CommunityTableCellModel: Entity {
     
-    var fullName: String
-    var avatarName: String
+    let fullName: String
+    let avatarName: String
+    let delegate: CommunityTableViewCellDelegate
+    let id: Int
     
-    init(community: Community) {
+    init(community: Community, delegate: CommunityTableViewCellDelegate) {
+        self.delegate = delegate
+        id = community.id
         fullName = community.name
         avatarName = community.avatarName
     }

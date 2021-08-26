@@ -57,6 +57,7 @@ class SignInViewController: UIViewController {
     }
     
     private func checkLogin() {
+        showActivityIndicator()
         if let login = loginTextField.text,
            let password = passwordTextField.text,
            login != "",
@@ -65,8 +66,8 @@ class SignInViewController: UIViewController {
                 UserDefaults.standard.set("\(userId)", forKey: "AccessToken")
                 UserDefaults.standard.synchronize()
                 currentUserId = userId
+                hideActivityIndicator()
                 showMain()
-                
             }
             else {
                 setErrorStyle()
@@ -78,6 +79,7 @@ class SignInViewController: UIViewController {
     }
     
     private func setErrorStyle() {
+        hideActivityIndicator()
         loginTextField.setErrorStyle()
         passwordTextField.setErrorStyle()
         let alertController = UIAlertController(title: "Информация", message: "Не верный логин или пароль", preferredStyle: .alert)

@@ -45,6 +45,7 @@
 		D875BDF426D3BD4800DEDBEE /* FriendPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D875BDF326D3BD4800DEDBEE /* FriendPhotosViewController.swift */; };
 		D875BDF926D3BF6900DEDBEE /* CommunitySearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D875BDF826D3BF6900DEDBEE /* CommunitySearch.storyboard */; };
 		D875BDFC26D3BF7500DEDBEE /* CommunitySearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D875BDFB26D3BF7500DEDBEE /* CommunitySearchViewController.swift */; };
+		D8BB233226D79F8500E3D4AF /* ViewController+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BB233126D79F8500E3D4AF /* ViewController+Additional.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +89,7 @@
 		D875BDF326D3BD4800DEDBEE /* FriendPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendPhotosViewController.swift; sourceTree = "<group>"; };
 		D875BDF826D3BF6900DEDBEE /* CommunitySearch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CommunitySearch.storyboard; sourceTree = "<group>"; };
 		D875BDFB26D3BF7500DEDBEE /* CommunitySearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunitySearchViewController.swift; sourceTree = "<group>"; };
+		D8BB233126D79F8500E3D4AF /* ViewController+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Additional.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				D8545C8D26C5B77E0061F397 /* UIColor.swift */,
+				D8BB233126D79F8500E3D4AF /* ViewController+Additional.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -359,6 +362,8 @@
 		D875BDD126D3AD8D00DEDBEE /* Community */ = {
 			isa = PBXGroup;
 			children = (
+				D875BDDC26D3B23A00DEDBEE /* View */,
+				D875BDE226D3B26600DEDBEE /* Model */,
 				D875BDD326D3ADA500DEDBEE /* Search */,
 				D875BDD226D3AD9F00DEDBEE /* Main */,
 			);
@@ -368,8 +373,6 @@
 		D875BDD226D3AD9F00DEDBEE /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				D875BDE226D3B26600DEDBEE /* Model */,
-				D875BDDC26D3B23A00DEDBEE /* View */,
 				D875BDD526D3ADB600DEDBEE /* Storyboard */,
 				D875BDD426D3ADB000DEDBEE /* Controller */,
 			);
@@ -547,6 +550,7 @@
 				D875BDC026D39E6500DEDBEE /* FriendTableViewCell.swift in Sources */,
 				D875BDCF26D3AC2C00DEDBEE /* NavigationController.swift in Sources */,
 				D8545C9726C5BDA80061F397 /* TextField.swift in Sources */,
+				D8BB233226D79F8500E3D4AF /* ViewController+Additional.swift in Sources */,
 				D8545C9426C5B8A50061F397 /* SecondaryButton.swift in Sources */,
 				D875BDDA26D3AF0C00DEDBEE /* CommunityViewController.swift in Sources */,
 				D875BDBC26D39CE700DEDBEE /* FriendsViewController.swift in Sources */,
