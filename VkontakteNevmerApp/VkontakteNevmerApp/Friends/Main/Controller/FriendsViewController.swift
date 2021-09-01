@@ -12,9 +12,15 @@ class FriendsViewController: UIViewController {
     // MARK: Outlets
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var myFriendsButton: UIButton!
+    @IBOutlet weak var searchFriendsButton: UIButton!
+    @IBOutlet weak var bottomLineView: UIView!
+    @IBOutlet weak var bottomLineLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var bottomLineWidthConstraint: NSLayoutConstraint!
     
     // MARK: Private properties
-    
+
+    private var isMyFriendSelected: Bool = true
     private var friends: [Entity] = []
     
     // MARK: Public properties
@@ -34,6 +40,14 @@ class FriendsViewController: UIViewController {
     
     // MARK: Actions
     
+    @IBAction func myFriendsButtonTapped(_ sender: UIButton) {
+        bottomViewMoveToButton(button: sender)
+    }
+    
+    @IBAction func searchFriendsButtonTapped(_ sender: UIButton) {
+        bottomViewMoveToButton(button: sender)
+    }
+    
     // MARK: Private methods
     
     private func initializeSetup() {
@@ -46,6 +60,34 @@ class FriendsViewController: UIViewController {
         
         let cell = UINib(nibName: "FriendTableViewCell", bundle: nil)
         tableView.register(cell, forCellReuseIdentifier: "FriendTableViewCell")
+    }
+    
+    private func bottomViewMoveToButton(button: UIButton) {
+        switch button {
+        case myFriendsButton:
+            myFriendsButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+            searchFriendsButton.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
+            myFriendsButton.setTitleColor(.black, for: .normal)
+            searchFriendsButton.setTitleColor(.gray, for: .normal)
+            bottomLineWidthConstraint.constant = myFriendsButton.frame.width
+            isMyFriendSelected = true
+        case searchFriendsButton:
+            myFriendsButton.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
+            searchFriendsButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+            myFriendsButton.setTitleColor(.gray, for: .normal)
+            searchFriendsButton.setTitleColor(.black, for: .normal)
+            bottomLineWidthConstraint.constant = myFriendsButton.frame.width
+            isMyFriendSelected = false
+        default: break
+        }
+        if let frame = button.superview?.frame {
+            let superViewFrameX = frame.minX
+            let frameX = button.frame.minX
+            bottomLineLeadingConstraint.constant = superViewFrameX + frameX
+            UIView.animate(withDuration: 0.4) {
+                self.view.layoutIfNeeded()
+            }
+        }
     }
 }
 
