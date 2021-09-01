@@ -24,18 +24,41 @@
                                     <outlet property="delegate" destination="Wdc-bM-Pdl" id="wVN-z4-ijg"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Bq-YM-fXz">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вы не состоите ни в одной из групп.  Ищите и вступайте в сообщества!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0hV-Wt-wqs">
+                                        <rect key="frame" x="30" y="425.5" width="354" height="45.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="0hV-Wt-wqs" secondAttribute="trailing" constant="30" id="Dyg-nL-6ih"/>
+                                    <constraint firstItem="0hV-Wt-wqs" firstAttribute="centerY" secondItem="2Bq-YM-fXz" secondAttribute="centerY" id="J9F-AR-OiL"/>
+                                    <constraint firstItem="0hV-Wt-wqs" firstAttribute="leading" secondItem="2Bq-YM-fXz" secondAttribute="leading" constant="30" id="NWg-IX-fNy"/>
+                                    <constraint firstItem="0hV-Wt-wqs" firstAttribute="centerX" secondItem="2Bq-YM-fXz" secondAttribute="centerX" id="ezL-ku-Qwd"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="k0M-B3-7K1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="2Bq-YM-fXz" secondAttribute="bottom" id="PM2-ON-lvv"/>
                             <constraint firstItem="qt9-aX-Eya" firstAttribute="leading" secondItem="k0M-B3-7K1" secondAttribute="leading" id="SXe-zx-0si"/>
+                            <constraint firstItem="2Bq-YM-fXz" firstAttribute="top" secondItem="Qx4-hk-Azh" secondAttribute="top" id="VtF-L1-mIF"/>
+                            <constraint firstItem="2Bq-YM-fXz" firstAttribute="leading" secondItem="k0M-B3-7K1" secondAttribute="leading" id="YbI-tV-ysw"/>
                             <constraint firstItem="qt9-aX-Eya" firstAttribute="top" secondItem="k0M-B3-7K1" secondAttribute="top" id="bzR-0A-kni"/>
                             <constraint firstItem="k0M-B3-7K1" firstAttribute="bottom" secondItem="qt9-aX-Eya" secondAttribute="bottom" id="hke-WF-xZe"/>
+                            <constraint firstItem="2Bq-YM-fXz" firstAttribute="trailing" secondItem="k0M-B3-7K1" secondAttribute="trailing" id="mxO-RC-nAe"/>
                             <constraint firstItem="k0M-B3-7K1" firstAttribute="trailing" secondItem="qt9-aX-Eya" secondAttribute="trailing" id="nwv-sQ-ULC"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ViK-kq-dRZ"/>
                     <connections>
+                        <outlet property="placeholderView" destination="2Bq-YM-fXz" id="Eqs-el-E6G"/>
                         <outlet property="tableView" destination="qt9-aX-Eya" id="vsE-N6-WW6"/>
                     </connections>
                 </viewController>

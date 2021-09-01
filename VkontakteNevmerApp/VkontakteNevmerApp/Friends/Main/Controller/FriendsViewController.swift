@@ -69,7 +69,7 @@ extension FriendsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let friend = friends[indexPath.row] as! FriendTableCellModel
         let friendPhotoVC = UIStoryboard(name: "FriendPhotos", bundle: nil).instantiateViewController(withIdentifier: "FriendPhotosViewController") as! FriendPhotosViewController
-        friendPhotoVC.fullName = friend.fullName
+        friendPhotoVC.user = friend.user
         navigationController?.pushViewController(friendPhotoVC, animated: true)
     }
 }
@@ -94,9 +94,11 @@ private extension FriendsViewController {
 
 extension FriendsViewController {
     func loadData() {
-        let friend = FriendTableCellModel(fullName: "Иванов Иван")
+        let  me = getMyProfile()
+        navigationItem.title = me?.name
+        let myFriends = getMyFriends()
+        self.friends = myFriends.map({FriendTableCellModel(user: $0)})
         
-        friends = [friend,friend,friend]
         tableView.reloadData()
     }
 }

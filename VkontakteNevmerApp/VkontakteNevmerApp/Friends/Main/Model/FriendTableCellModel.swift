@@ -9,11 +9,13 @@ import Foundation
  
 class FriendTableCellModel: Entity {
     
-    var fullName: String
-    var imageName: String?
+    let fullName: String
+    let imageName: String?
+    let user: UserProfile
     
-    init(fullName: String, imageName: String? = nil) {
-        self.fullName = fullName
-        self.imageName = imageName
+    init (user: UserProfile) {
+        self.user = user
+        self.fullName = user.name + " " + user.surname
+        self.imageName = user.avatarName == "" ? nil : user.avatarName
     }
 }

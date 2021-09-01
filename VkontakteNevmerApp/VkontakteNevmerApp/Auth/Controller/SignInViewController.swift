@@ -18,18 +18,12 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var signInButton: PrimaryButton!
     @IBOutlet weak var signUpButton: SecondaryButton!
     
-    // MARK: Private properties
-    
-    let loginConstant = "Admin"
-    let passwordConstant = "Admin"
-    
-    // MARK: Public properties
-    
     // MARK: Lyfecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        printDescription()
         initializeSetup()
         setupText()
     }
@@ -52,7 +46,8 @@ class SignInViewController: UIViewController {
     // MARK: Private methods
     
     private func initializeSetup() {
-        if let token = UserDefaults.standard.string(forKey: "AccessToken"), token == "token" {
+        if let userIdStr = UserDefaults.standard.string(forKey: "AccessToken"), let userId = Int(userIdStr) {
+            currentUserId = userId
             showMain()
         }
         navigationController?.navigationBar.isHidden = true
@@ -62,22 +57,44 @@ class SignInViewController: UIViewController {
     }
     
     private func checkLogin() {
+        showActivityIndicator()
         if let login = loginTextField.text,
            let password = passwordTextField.text,
-           login == loginConstant,
-           password == passwordConstant {
-            showMain()
-            UserDefaults.standard.set("token", forKey: "AccessToken")
-            UserDefaults.standard.synchronize()
-            
+           login != "",
+           password != "" {
+            if let userId = loginUser(withLogin: login, andPass: password) {
+                UserDefaults.standard.set("\(userId)", forKey: "AccessToken")
+                UserDefaults.standard.synchronize()
+                currentUserId = userId
+                hideActivityIndicator()
+                showMain()
+            }
+            else {
+                setErrorStyle()
+            }
         }
         else {
-            loginTextField.setErrorStyle()
-            passwordTextField.setErrorStyle()
-            let alertController = UIAlertController(title: "Информация", message: "Не верный логин или пароль", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-            present(alertController, animated: true, completion: nil)
+            setErrorStyle()
         }
+    }
+    
+    private func setErrorStyle() {
+        hideActivityIndicator()
+        loginTextField.setErrorStyle()
+        passwordTextField.setErrorStyle()
+        let alertController = UIAlertController(title: "Информация", message: "Не верный логин или пароль", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    private func printDescription() {
+        print ("""
+            Возможные логины и пароли:
+            admin - admin
+            admin1 - admin1
+            ... - ...
+            admin9 - admin9
+            """)
     }
     
     private func showMain() {
@@ -98,11 +115,11 @@ extension SignInViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         switch textField {
         case loginTextField:
-            if let login = loginTextField.text, login != loginConstant {
+            if let login = loginTextField.text, login == "" {
                 loginTextField.setErrorStyle()
             }
         case passwordTextField:
-            if let password = loginTextField.text, password != passwordConstant {
+            if let password = loginTextField.text, password == "" {
                 passwordTextField.setErrorStyle()
             }
         default:
