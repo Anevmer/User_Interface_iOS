@@ -14,8 +14,13 @@ class FriendTableViewCell: UITableViewCell {
     @IBOutlet weak var roundedBackgroundView: UIView!
     @IBOutlet weak var fullNameLabel: UILabel!
     @IBOutlet weak var avatarImageView: UIImageView!
+    @IBOutlet weak var avatarContainreView: UIView!
     
     // MARK: Public properties
+    
+    @IBInspectable var shadowColor: UIColor = .black
+    @IBInspectable var shadowRadius: CGFloat = 6.0
+    @IBInspectable var shadowOpacity: CGFloat = 0.1
     
     // MARK: Private properties
     
@@ -39,10 +44,15 @@ class FriendTableViewCell: UITableViewCell {
     
     func applyStyle() {
         selectionStyle = .none
-        roundedBackgroundView.layer.cornerRadius = 12
-        roundedBackgroundView.layer.shadowColor = UIColor.black.cgColor
-        roundedBackgroundView.layer.shadowOffset = CGSize(width: 0, height: 3)
-        roundedBackgroundView.layer.shadowRadius = 6
-        roundedBackgroundView.layer.shadowOpacity = 0.06
+
+        // Реализация тени и закруглений без ShadowBackgroundView
+        avatarContainreView.layer.masksToBounds = false
+        avatarContainreView.layer.cornerRadius = 24
+        avatarContainreView.backgroundColor = .white
+        avatarContainreView.layer.shadowColor = shadowColor.cgColor
+        avatarContainreView.layer.shadowOffset = CGSize(width: 0, height: 3)
+        avatarContainreView.layer.shadowRadius = shadowRadius
+        avatarContainreView.layer.shadowOpacity = Float(shadowOpacity)
+
     }
 }

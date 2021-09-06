@@ -61,7 +61,6 @@ extension FriendsViewController: UITableViewDataSource {
         
         return cell
     }
-
 }
 
 extension FriendsViewController: UITableViewDelegate {
