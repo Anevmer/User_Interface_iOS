@@ -41,6 +41,7 @@ class SignInViewController: UIViewController {
     
     @IBAction func signUpButtonTapped(_ sender: UIButton) {
         print("register")
+        showCustomActivityIndicator()
     }
     
     // MARK: Private methods
