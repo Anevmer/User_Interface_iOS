@@ -22,9 +22,7 @@ class CommunityTableViewCell: UITableViewCell {
     // MARK: Public properties
     
     weak var delegate: CommunityTableViewCellDelegate?
-    
-    // MARK: Private properties
-    
+        
     // MARK: Lifecycle
 
     override func awakeFromNib() {
@@ -36,6 +34,20 @@ class CommunityTableViewCell: UITableViewCell {
     
     @IBAction func moreButtonTapped(_ sender: UIButton) {
         delegate?.communityTableViewCellMoreButton(self)
+    }
+    
+    @objc private func tapImageView() {
+        avataImageView.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+        UIView.animate(
+            withDuration: 1.6,
+            delay: 0,
+            usingSpringWithDamping: 0.4,
+            initialSpringVelocity: 0.2,
+            options: .curveEaseOut,
+            animations: {
+                self.avataImageView.transform = CGAffineTransform(scaleX: 1, y: 1)
+            },
+            completion: nil)
     }
 
     // MARK: Public methods
@@ -52,6 +64,10 @@ class CommunityTableViewCell: UITableViewCell {
     // MARK: Private methods
     
     func applyStyle() {
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapImageView))
+        avataImageView.addGestureRecognizer(gestureRecognizer)
+        avataImageView.isUserInteractionEnabled = true
+        
         selectionStyle = .none
         roundedBackgroundView.layer.cornerRadius = 12
         roundedBackgroundView.layer.shadowColor = UIColor.black.cgColor

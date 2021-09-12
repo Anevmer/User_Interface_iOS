@@ -23,6 +23,12 @@ class NewsModelTableViewCell: UITableViewCell {
     
     // MARK: Private properties
     
+    private var isLiked: Bool = false {
+        didSet {
+            setIsLikedStyle(isLiked: isLiked)
+        }
+    }
+    
     private var likesCount: Int = 0 {
         didSet {
             likeButton.setTitle("\(likesCount)", for: [])
@@ -53,7 +59,14 @@ class NewsModelTableViewCell: UITableViewCell {
     // MARK: Actions
     
     @IBAction func likeButtonTapped(_ sender: UIButton) {
-        likesCount += 1
+        isLiked = !isLiked
+        if isLiked {
+            likesCount += 1
+        }
+        else {
+            likesCount -= 1
+        }
+        
     }
     
     @IBAction func commentButtonTapped(_ sender: UIButton) {
@@ -62,7 +75,22 @@ class NewsModelTableViewCell: UITableViewCell {
     
     // MARK: Private methods
     
-    func applyStyle() {
+    private func setIsLikedStyle(isLiked: Bool) {
+        if isLiked {
+            likeButton.backgroundColor = .likeRed20
+            likeButton.setTitleColor(.likeRed, for: [])
+            likeButton.tintColor = .likeRed
+            likeButton.setImage(UIImage(systemName: "heart.fill"), for: [])
+        }
+        else {
+            likeButton.backgroundColor = .systemGray5
+            likeButton.setTitleColor(.systemGray, for: [])
+            likeButton.tintColor = .systemGray
+            likeButton.setImage(UIImage(systemName: "heart"), for: [])
+        }
+    }
+    
+    private func applyStyle() {
         authorAvatarImageView.layer.cornerRadius = authorAvatarImageView.bounds.height / 2
         likeButton.layer.cornerRadius = likeButton.bounds.height / 2
         commentButton.layer.cornerRadius = commentButton.bounds.height / 2

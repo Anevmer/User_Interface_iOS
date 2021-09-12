@@ -18,6 +18,10 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var signInButton: PrimaryButton!
     @IBOutlet weak var signUpButton: SecondaryButton!
     
+    // MARK: Private properties
+    
+    private var loadingView: LoadingView!
+    
     // MARK: Lyfecycle
 
     override func viewDidLoad() {
@@ -36,17 +40,20 @@ class SignInViewController: UIViewController {
     // MARK: Actions
     
     @IBAction func signInButtonTapped(_ sender: UIButton) {
+        loadingView.animate()
         checkLogin()
     }
     
     @IBAction func signUpButtonTapped(_ sender: UIButton) {
-        print("register")
-        showCustomActivityIndicator()
+        
     }
     
     // MARK: Private methods
     
     private func initializeSetup() {
+        loadingView = LoadingView()
+        view.addSubview(loadingView)
+        loadingView.frame = view.frame
         if let userIdStr = UserDefaults.standard.string(forKey: "AccessToken"), let userId = Int(userIdStr) {
             currentUserId = userId
             showMain()
@@ -58,24 +65,26 @@ class SignInViewController: UIViewController {
     }
     
     private func checkLogin() {
-        showActivityIndicator()
-        if let login = loginTextField.text,
-           let password = passwordTextField.text,
-           login != "",
-           password != "" {
-            if let userId = loginUser(withLogin: login, andPass: password) {
-                UserDefaults.standard.set("\(userId)", forKey: "AccessToken")
-                UserDefaults.standard.synchronize()
-                currentUserId = userId
-                hideActivityIndicator()
-                showMain()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(5)) {
+            if let login = self.loginTextField.text,
+               let password = self.passwordTextField.text,
+               login != "",
+               password != "" {
+                if let userId = loginUser(withLogin: login, andPass: password) {
+                    UserDefaults.standard.set("\(userId)", forKey: "AccessToken")
+                    UserDefaults.standard.synchronize()
+                    currentUserId = userId
+                    self.showMain()
+                }
+                else {
+                    self.setErrorStyle()
+                }
             }
             else {
-                setErrorStyle()
+                self.setErrorStyle()
             }
-        }
-        else {
-            setErrorStyle()
+            self.loadingView.stopAnimate()
         }
     }
     
@@ -91,10 +100,10 @@ class SignInViewController: UIViewController {
     private func printDescription() {
         print ("""
             Возможные логины и пароли:
-            admin - admin
-            admin1 - admin1
+            Admin - Admin
+            Admin1 - Admin1
             ... - ...
-            admin9 - admin9
+            Admin9 - Admin9
             """)
     }
     
@@ -137,7 +146,6 @@ private extension SignInViewController {
         passwordTitleLabel.text = "Пароль"
         signInButton.setTitle("Войти", for: .normal)
         signUpButton.setTitle("Зарегистрироваться", for: .normal)
-        
     }
 }
 
