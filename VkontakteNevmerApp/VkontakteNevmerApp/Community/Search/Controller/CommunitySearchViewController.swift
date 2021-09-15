@@ -16,6 +16,7 @@ class CommunitySearchViewController: UIViewController {
     // MARK: Private properties
     
     private var communities: [Entity] = []
+    private var searchBar: UISearchBar!
     
     // MARK: Public properties
     
@@ -25,7 +26,6 @@ class CommunitySearchViewController: UIViewController {
         super.viewDidLoad()
 
         setupTableView()
-        initializeSetup()
         applyStyle()
         setupText()
         
@@ -36,18 +36,42 @@ class CommunitySearchViewController: UIViewController {
         loadData()
     }
         
-    // MARK: Private methods
-    
-    private func initializeSetup() {
-        
-    }
-    
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
+        let view = UIView(frame: CGRect(x: 16, y: 10, width: tableView.frame.width - 32, height: 50))
+        searchBar = UISearchBar(frame: CGRect(x: 6, y: 0, width: view.frame.width - 16, height: 50))
+        searchBar.delegate = self
+        searchBar.placeholder = "Найти сообщество"
+        searchBar.setImage(UIImage(), for: .clear, state: [])
+        searchBar.tintColor = .black
+        view.addSubview(searchBar)
+        tableView.tableHeaderView = view
         
         let cell = UINib(nibName: "CommunityTableViewCell", bundle: nil)
         tableView.register(cell, forCellReuseIdentifier: "CommunityTableViewCell")
+    }
+}
+
+// MARK: Extension for UISearchBarDelegate
+
+extension CommunitySearchViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText != "" {
+            loadData(withSearchText: searchText)
+            searchBar.setShowsCancelButton(true, animated: true)
+        }
+        else {
+            searchBar.setShowsCancelButton(false, animated: true)
+            loadData()
+        }
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        searchBar.setShowsCancelButton(false, animated: true)
+        searchBar.endEditing(true)
+        loadData()
     }
 }
 
@@ -118,8 +142,11 @@ private extension CommunitySearchViewController {
 // MARK: Extension for data loading
 
 extension CommunitySearchViewController {
-    func loadData() {
-        let searchesCommunities = getOthersCommunities()
+    func loadData(withSearchText searchText: String? = nil) {
+        var searchesCommunities = getOthersCommunities()
+        if let searchText = searchText {
+            searchesCommunities = searchesCommunities.filter({$0.name.contains(searchText)})
+        }
         communities = searchesCommunities.map({CommunityTableCellModel(community: $0, delegate: self)})
         tableView.reloadData()
     }

@@ -37,6 +37,7 @@ class FriendTableViewCell: UITableViewCell {
         if let model = entity as? FriendTableCellModel {
             fullNameLabel.text = model.fullName
             avatarImageView.image = UIImage(named: model.imageName ?? "userAvatarPlaceholderIcon")
+
         }
     }
 
@@ -44,8 +45,8 @@ class FriendTableViewCell: UITableViewCell {
     
     func applyStyle() {
         selectionStyle = .none
-
-        // Реализация тени и закруглений без ShadowBackgroundView
+        selectedBackgroundView?.backgroundColor = .clear
+        avatarImageView.layer.cornerRadius = avatarImageView.bounds.height / 2
         avatarContainreView.layer.masksToBounds = false
         avatarContainreView.layer.cornerRadius = 24
         avatarContainreView.backgroundColor = .white

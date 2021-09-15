@@ -13,13 +13,15 @@ private var allUsers = [
     UserProfile(id: 123, name: "Иван", surname: "Петров", friendIds: [132, 130], communityIds: [225, 227, 232], avatarName: "user5", photoNames: ["photo1", "photo2"]),
     UserProfile(id: 124, name: "Петр", surname: "Синий", friendIds: [132, 130], communityIds: [223, 224, 227], avatarName: "user7", photoNames: ["photo1"]),
     UserProfile(id: 125, name: "Сергей", surname: "Иванов", friendIds: [132, 130], communityIds: [], avatarName: "user6", photoNames: ["photo1", "photo2", "photo3"]),
-    UserProfile(id: 126, name: "Андрей", surname: "Алексеев", friendIds: [132, 130], communityIds: [228], avatarName: "user3", photoNames: ["photo1", "photo2", "photo3", "photo1", "photo2"]),
+    UserProfile(id: 126, name: "Андрей", surname: "Сергеев", friendIds: [132, 130], communityIds: [228], avatarName: "user3", photoNames: ["photo1", "photo2", "photo3", "photo1", "photo2"]),
     UserProfile(id: 127, name: "Николай", surname: "Видзе", friendIds: [], communityIds: [225, 228], avatarName: "user1", photoNames: ["photo1", "photo1", "photo3", "photo2", "photo2"]),
     UserProfile(id: 128, name: "Сергей", surname: "Иванов", friendIds: [], communityIds: [223, 226, 230], avatarName: "", photoNames: ["photo1", "photo2", "photo3", "photo1", "photo2", "photo1", "photo3", "photo1", "photo1", "photo2"]),
     UserProfile(id: 129, name: "Артём", surname: "Артёмов", friendIds: [], communityIds: [226, 230, 232], avatarName: "user5", photoNames: ["photo3", "photo1", "photo2",]),
     UserProfile(id: 130, name: "Лёха", surname: "Жук", friendIds: [123, 124, 125, 126], communityIds: [], avatarName: "", photoNames: []),
     UserProfile(id: 131, name: "Корней", surname: "Сергеев", friendIds: [], communityIds: [229, 231], avatarName: "user4", photoNames: []),
     UserProfile(id: 132, name: "Виктор", surname: "Черный", friendIds: [123, 124, 125, 126], communityIds: [224, 229, 231], avatarName: "user2", photoNames: []),
+    UserProfile(id: 133, name: "Сергей", surname: "Черненко", friendIds: [], communityIds: [], avatarName: "user2", photoNames: [])
+    
 ]
 
 private var allCommunities = [
@@ -49,6 +51,10 @@ func getProfileWithId(userId: Int) -> UserProfile? {
 
 func getMyFriends() -> [UserProfile] {
     return allUsers.filter({$0.friendsId.contains(currentUserId)})
+}
+
+func getOtherUsers() -> [UserProfile] {
+    return allUsers.filter({!$0.friendsId.contains(currentUserId)})
 }
 
 func getCommunityWithId(communityId: Int) -> Community? {

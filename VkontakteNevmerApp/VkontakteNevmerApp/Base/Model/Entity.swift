@@ -7,6 +7,6 @@
 
 import Foundation
 
-class Entity {
+protocol Entity {
     
 }
