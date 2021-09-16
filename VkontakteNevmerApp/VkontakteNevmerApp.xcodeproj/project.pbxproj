@@ -13,6 +13,9 @@
 		D830A7ED26D5740A005286D5 /* Community.swift in Sources */ = {isa = PBXBuildFile; fileRef = D830A7EC26D5740A005286D5 /* Community.swift */; };
 		D830A7F726D57970005286D5 /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D830A7F626D57970005286D5 /* DataBase.swift */; };
 		D830A7FC26D588E5005286D5 /* UserPhotoCollectionCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D830A7FB26D588E5005286D5 /* UserPhotoCollectionCellModel.swift */; };
+		D8400C0D26F38D5200953E8D /* PhotoViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8400C0C26F38D5200953E8D /* PhotoViewerViewController.swift */; };
+		D8400C1026F38D6100953E8D /* PhotoViewer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8400C0F26F38D6100953E8D /* PhotoViewer.storyboard */; };
+		D8400C1526F392AE00953E8D /* ImageViewZoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8400C1426F392AE00953E8D /* ImageViewZoom.swift */; };
 		D8545C6826C5AA410061F397 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8545C6726C5AA410061F397 /* AppDelegate.swift */; };
 		D8545C6A26C5AA410061F397 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8545C6926C5AA410061F397 /* SceneDelegate.swift */; };
 		D8545C6C26C5AA410061F397 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8545C6B26C5AA410061F397 /* ViewController.swift */; };
@@ -63,6 +66,9 @@
 		D830A7EC26D5740A005286D5 /* Community.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Community.swift; sourceTree = "<group>"; };
 		D830A7F626D57970005286D5 /* DataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
 		D830A7FB26D588E5005286D5 /* UserPhotoCollectionCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPhotoCollectionCellModel.swift; sourceTree = "<group>"; };
+		D8400C0C26F38D5200953E8D /* PhotoViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewerViewController.swift; sourceTree = "<group>"; };
+		D8400C0F26F38D6100953E8D /* PhotoViewer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PhotoViewer.storyboard; sourceTree = "<group>"; };
+		D8400C1426F392AE00953E8D /* ImageViewZoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewZoom.swift; sourceTree = "<group>"; };
 		D8545C6426C5AA410061F397 /* VkontakteNevmerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VkontakteNevmerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8545C6726C5AA410061F397 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8545C6926C5AA410061F397 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -358,6 +364,7 @@
 			isa = PBXGroup;
 			children = (
 				D875BDF326D3BD4800DEDBEE /* FriendPhotosViewController.swift */,
+				D8400C0C26F38D5200953E8D /* PhotoViewerViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -366,6 +373,7 @@
 			isa = PBXGroup;
 			children = (
 				D875BDF026D3BD2E00DEDBEE /* FriendPhotos.storyboard */,
+				D8400C0F26F38D6100953E8D /* PhotoViewer.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -374,6 +382,7 @@
 			isa = PBXGroup;
 			children = (
 				D830A7FB26D588E5005286D5 /* UserPhotoCollectionCellModel.swift */,
+				D8400C1426F392AE00953E8D /* ImageViewZoom.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -632,6 +641,7 @@
 				D8545C7426C5AA440061F397 /* LaunchScreen.storyboard in Resources */,
 				D88C56A626E95A8600D1B73E /* NewsModelTableViewCell.xib in Resources */,
 				D875BDC126D39E6500DEDBEE /* FriendTableViewCell.xib in Resources */,
+				D8400C1026F38D6100953E8D /* PhotoViewer.storyboard in Resources */,
 				D875BDA726D398BB00DEDBEE /* Navigation.storyboard in Resources */,
 				D875BDF926D3BF6900DEDBEE /* CommunitySearch.storyboard in Resources */,
 				D8545C7126C5AA440061F397 /* Assets.xcassets in Resources */,
@@ -661,6 +671,7 @@
 				D8545C9726C5BDA80061F397 /* TextField.swift in Sources */,
 				D8BB233226D79F8500E3D4AF /* ViewController+Additional.swift in Sources */,
 				D8545C9426C5B8A50061F397 /* SecondaryButton.swift in Sources */,
+				D8400C1526F392AE00953E8D /* ImageViewZoom.swift in Sources */,
 				D88C56A526E95A8600D1B73E /* NewsModelTableViewCell.swift in Sources */,
 				D875BDDA26D3AF0C00DEDBEE /* CommunityViewController.swift in Sources */,
 				D88C56A926E9603A00D1B73E /* NewsTableCellModel.swift in Sources */,
@@ -677,6 +688,7 @@
 				D875BDDF26D3B26300DEDBEE /* CommunityTableViewCell.swift in Sources */,
 				D830A7ED26D5740A005286D5 /* Community.swift in Sources */,
 				D875BDEE26D3B79B00DEDBEE /* SettingsViewController.swift in Sources */,
+				D8400C0D26F38D5200953E8D /* PhotoViewerViewController.swift in Sources */,
 				D88C56A126E9594600D1B73E /* NewsViewController.swift in Sources */,
 				D830A7F726D57970005286D5 /* DataBase.swift in Sources */,
 				D830A7E226D57211005286D5 /* UserPhotoCollectionViewCell.swift in Sources */,

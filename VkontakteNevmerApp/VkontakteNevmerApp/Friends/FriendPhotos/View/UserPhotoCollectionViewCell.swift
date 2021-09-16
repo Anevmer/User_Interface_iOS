@@ -27,5 +27,4 @@ class UserPhotoCollectionViewCell: UICollectionViewCell {
         
         imageView.image = UIImage(named: model.photoName)
     }
-
 }

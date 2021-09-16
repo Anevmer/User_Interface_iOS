@@ -39,6 +39,7 @@ class FriendPhotosViewController: UIViewController {
     
     private func setupCollectionView() {
         collectionView.dataSource = self
+        collectionView.delegate = self
         collectionView.register(UINib(nibName: "UserPhotoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "UserPhotoCollectionViewCell")
     }
 }
@@ -56,7 +57,19 @@ extension FriendPhotosViewController: UICollectionViewDataSource {
         
         return cell
     }
- 
+}
+
+extension FriendPhotosViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let viewerVC = UIStoryboard(name: "PhotoViewer", bundle: nil).instantiateViewController(withIdentifier: "PhotoViewerViewController") as! PhotoViewerViewController
+        viewerVC.photos = user?.photoNames ?? []
+        viewerVC.currentImageNumber = indexPath.item
+        viewerVC.modalPresentationStyle = .fullScreen
+        
+        present(viewerVC, animated: true, completion: nil)
+//        navigationController?.pushViewController(viewerVC, animated: true)
+    }
 }
 
 // MARK: Extension for data loading
