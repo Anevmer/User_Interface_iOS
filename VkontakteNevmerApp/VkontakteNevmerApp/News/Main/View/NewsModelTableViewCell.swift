@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol NewsModelTableViewCellDelegate: class {
+    func newsModelTableViewCell(_ cell: NewsModelTableViewCell, isLiked: Bool)
+}
+
 class NewsModelTableViewCell: UITableViewCell {
     
     // MARK: Outlets
@@ -20,6 +24,8 @@ class NewsModelTableViewCell: UITableViewCell {
     @IBOutlet weak var commentButton: UIButton!
     
     // MARK: Public properties
+    
+    weak var delegate: NewsModelTableViewCellDelegate?
     
     // MARK: Private properties
     
@@ -53,7 +59,7 @@ class NewsModelTableViewCell: UITableViewCell {
         contentImageView.isHidden = true
         likesCount = model.likesCount
         commentButton.setTitle("\(model.commentsCount)", for: [])
-        
+        isLiked = model.isLiked
     }
     
     // MARK: Actions
@@ -66,7 +72,7 @@ class NewsModelTableViewCell: UITableViewCell {
         else {
             likesCount -= 1
         }
-        
+        delegate?.newsModelTableViewCell(self, isLiked: isLiked)
     }
     
     @IBAction func commentButtonTapped(_ sender: UIButton) {

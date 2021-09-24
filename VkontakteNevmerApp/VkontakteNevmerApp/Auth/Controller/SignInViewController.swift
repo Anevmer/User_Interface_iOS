@@ -66,7 +66,7 @@ class SignInViewController: UIViewController {
     
     private func checkLogin() {
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(5)) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4)) {
             if let login = self.loginTextField.text,
                let password = self.passwordTextField.text,
                login != "",

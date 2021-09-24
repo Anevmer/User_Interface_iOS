@@ -16,74 +16,140 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="crn-tW-DCs">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="crn-tW-DCs">
                                 <rect key="frame" x="0.0" y="88" width="414" height="32"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="Xas-yb-qNz">
-                                        <rect key="frame" x="16" y="0.0" width="382" height="32"/>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mrJ-9G-a0x">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="32"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cu9-AS-ITI">
-                                                <rect key="frame" x="0.0" y="0.0" width="171" height="32"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Xas-yb-qNz">
+                                                <rect key="frame" x="20" y="0.0" width="339" height="32"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gwz-9f-Nof">
-                                                        <rect key="frame" x="35.5" y="0.0" width="100" height="32"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zsg-x4-hxZ">
+                                                        <rect key="frame" x="0.0" y="0.0" width="92" height="32"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="100" id="GEv-TY-04K"/>
+                                                            <constraint firstAttribute="width" constant="92" id="G85-PF-jXs"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <state key="normal" title="Мои друзья"/>
+                                                        <state key="normal" title="Подписки">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="selectGroupButtonTapped:" destination="o3K-f6-NRW" eventType="touchUpInside" id="cLv-6G-1Mu"/>
+                                                        </connections>
                                                     </button>
-                                                </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <constraints>
-                                                    <constraint firstItem="Gwz-9f-Nof" firstAttribute="top" secondItem="cu9-AS-ITI" secondAttribute="top" id="PBy-V8-R6E"/>
-                                                    <constraint firstItem="Gwz-9f-Nof" firstAttribute="centerX" secondItem="cu9-AS-ITI" secondAttribute="centerX" id="Ykc-cI-KbP"/>
-                                                    <constraint firstAttribute="bottom" secondItem="Gwz-9f-Nof" secondAttribute="bottom" id="f6T-Om-Qff"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LjR-Vf-sHf">
-                                                <rect key="frame" x="211" y="0.0" width="171" height="32"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T92-c8-Vzl">
-                                                        <rect key="frame" x="28" y="0.0" width="115" height="32"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0fW-tv-keZ">
+                                                        <rect key="frame" x="112" y="0.0" width="72" height="32"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="115" id="dBE-OR-dpb"/>
+                                                            <constraint firstAttribute="width" constant="72" id="v2G-uZ-mAP"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <state key="normal" title="Найти друзей"/>
+                                                        <state key="normal" title="Друзья">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="selectGroupButtonTapped:" destination="o3K-f6-NRW" eventType="touchUpInside" id="wL7-qg-yNn"/>
+                                                        </connections>
                                                     </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5xk-4f-CYW">
+                                                        <rect key="frame" x="204" y="0.0" width="135" height="32"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="135" id="ZYm-t2-WPA"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Рекоммендации">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="selectGroupButtonTapped:" destination="o3K-f6-NRW" eventType="touchUpInside" id="OSY-DG-Ad4"/>
+                                                        </connections>
+                                                    </button>
+                                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gqM-65-SdU">
+                                                        <rect key="frame" x="339" y="0.0" width="0.0" height="32"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wev-jg-jkP">
+                                                                <rect key="frame" x="-40" y="0.0" width="80" height="32"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="80" id="FR5-ml-qvp"/>
+                                                                </constraints>
+                                                                <state key="normal" title="Подписки"/>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstItem="Wev-jg-jkP" firstAttribute="top" secondItem="gqM-65-SdU" secondAttribute="top" id="ARO-Su-OBi"/>
+                                                            <constraint firstAttribute="bottom" secondItem="Wev-jg-jkP" secondAttribute="bottom" id="SqH-yl-TA8"/>
+                                                            <constraint firstItem="Wev-jg-jkP" firstAttribute="centerX" secondItem="gqM-65-SdU" secondAttribute="centerX" id="rsI-hX-ngt"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cu9-AS-ITI">
+                                                        <rect key="frame" x="339" y="0.0" width="0.0" height="32"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gwz-9f-Nof">
+                                                                <rect key="frame" x="-50" y="0.0" width="100" height="32"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="100" id="GEv-TY-04K"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                <state key="normal" title="Мои друзья"/>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstItem="Gwz-9f-Nof" firstAttribute="top" secondItem="cu9-AS-ITI" secondAttribute="top" id="PBy-V8-R6E"/>
+                                                            <constraint firstItem="Gwz-9f-Nof" firstAttribute="centerX" secondItem="cu9-AS-ITI" secondAttribute="centerX" id="Ykc-cI-KbP"/>
+                                                            <constraint firstAttribute="bottom" secondItem="Gwz-9f-Nof" secondAttribute="bottom" id="f6T-Om-Qff"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LjR-Vf-sHf">
+                                                        <rect key="frame" x="339" y="0.0" width="0.0" height="32"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T92-c8-Vzl">
+                                                                <rect key="frame" x="-62.5" y="0.0" width="125" height="32"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="125" id="dBE-OR-dpb"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                <state key="normal" title="Рекомендации"/>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="bottom" secondItem="T92-c8-Vzl" secondAttribute="bottom" id="XZu-fT-SNG"/>
+                                                            <constraint firstItem="T92-c8-Vzl" firstAttribute="centerX" secondItem="LjR-Vf-sHf" secondAttribute="centerX" id="kBS-OM-ILe"/>
+                                                            <constraint firstItem="T92-c8-Vzl" firstAttribute="top" secondItem="LjR-Vf-sHf" secondAttribute="top" id="xEt-H8-xGu"/>
+                                                        </constraints>
+                                                    </view>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </stackView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fje-Up-axv">
+                                                <rect key="frame" x="0.0" y="30" width="60" height="2"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="T92-c8-Vzl" secondAttribute="bottom" id="XZu-fT-SNG"/>
-                                                    <constraint firstItem="T92-c8-Vzl" firstAttribute="centerX" secondItem="LjR-Vf-sHf" secondAttribute="centerX" id="kBS-OM-ILe"/>
-                                                    <constraint firstItem="T92-c8-Vzl" firstAttribute="top" secondItem="LjR-Vf-sHf" secondAttribute="top" id="xEt-H8-xGu"/>
+                                                    <constraint firstAttribute="width" constant="60" id="1R3-4Z-ata"/>
+                                                    <constraint firstAttribute="height" constant="2" id="R0J-SR-IQY"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
-                                    </stackView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fje-Up-axv">
-                                        <rect key="frame" x="50" y="30" width="60" height="2"/>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="60" id="1R3-4Z-ata"/>
-                                            <constraint firstAttribute="height" constant="2" id="R0J-SR-IQY"/>
+                                            <constraint firstAttribute="trailing" secondItem="Xas-yb-qNz" secondAttribute="trailing" constant="20" id="202-J0-F19"/>
+                                            <constraint firstItem="Xas-yb-qNz" firstAttribute="leading" secondItem="mrJ-9G-a0x" secondAttribute="leading" constant="20" id="6JE-hX-GHq"/>
+                                            <constraint firstAttribute="bottom" secondItem="Fje-Up-axv" secondAttribute="bottom" id="Dqj-Tg-mW6"/>
+                                            <constraint firstItem="Xas-yb-qNz" firstAttribute="top" secondItem="mrJ-9G-a0x" secondAttribute="top" id="Iab-s5-P9A"/>
+                                            <constraint firstItem="Fje-Up-axv" firstAttribute="leading" secondItem="mrJ-9G-a0x" secondAttribute="leading" id="KTf-Rf-h7K"/>
+                                            <constraint firstAttribute="bottom" secondItem="Xas-yb-qNz" secondAttribute="bottom" id="UYU-K6-TJq"/>
+                                            <constraint firstItem="Xas-yb-qNz" firstAttribute="centerY" secondItem="mrJ-9G-a0x" secondAttribute="centerY" id="qgv-mb-w0S"/>
                                         </constraints>
-                                    </view>
+                                    </scrollView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="Xas-yb-qNz" firstAttribute="top" secondItem="crn-tW-DCs" secondAttribute="top" id="Iy0-df-W39"/>
-                                    <constraint firstItem="Xas-yb-qNz" firstAttribute="leading" secondItem="crn-tW-DCs" secondAttribute="leading" constant="16" id="Jvt-nP-gIW"/>
-                                    <constraint firstAttribute="bottom" secondItem="Xas-yb-qNz" secondAttribute="bottom" id="OS7-0I-JCl"/>
-                                    <constraint firstItem="Fje-Up-axv" firstAttribute="leading" secondItem="crn-tW-DCs" secondAttribute="leading" constant="50" id="dU7-7f-mnH"/>
+                                    <constraint firstItem="mrJ-9G-a0x" firstAttribute="leading" secondItem="crn-tW-DCs" secondAttribute="leading" id="1Sg-Q8-hmb"/>
+                                    <constraint firstItem="mrJ-9G-a0x" firstAttribute="top" secondItem="crn-tW-DCs" secondAttribute="top" id="djW-kv-qA7"/>
                                     <constraint firstAttribute="height" constant="32" id="f0J-Eh-K1m"/>
-                                    <constraint firstAttribute="trailing" secondItem="Xas-yb-qNz" secondAttribute="trailing" constant="16" id="mXw-8P-i8M"/>
-                                    <constraint firstAttribute="bottom" secondItem="Fje-Up-axv" secondAttribute="bottom" id="nXx-2j-JpM"/>
+                                    <constraint firstAttribute="bottom" secondItem="mrJ-9G-a0x" secondAttribute="bottom" id="heE-H5-Ylk"/>
+                                    <constraint firstAttribute="trailing" secondItem="mrJ-9G-a0x" secondAttribute="trailing" id="pkW-76-lQY"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7RR-Hv-rOl">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="125" width="414" height="688"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="o3K-f6-NRW" id="c76-Rf-Xqf"/>
@@ -100,11 +166,22 @@
                             <constraint firstItem="crn-tW-DCs" firstAttribute="top" secondItem="lrp-Ub-tHo" secondAttribute="top" id="LKr-wt-SSL"/>
                             <constraint firstItem="lrp-Ub-tHo" firstAttribute="trailing" secondItem="7RR-Hv-rOl" secondAttribute="trailing" id="QJp-Hf-zrf"/>
                             <constraint firstItem="7RR-Hv-rOl" firstAttribute="leading" secondItem="lrp-Ub-tHo" secondAttribute="leading" id="RHo-3z-dkF"/>
-                            <constraint firstItem="7RR-Hv-rOl" firstAttribute="top" secondItem="crn-tW-DCs" secondAttribute="bottom" constant="-32" id="cv7-1T-gdk"/>
+                            <constraint firstItem="7RR-Hv-rOl" firstAttribute="top" secondItem="crn-tW-DCs" secondAttribute="bottom" constant="5" id="cv7-1T-gdk"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="lnT-3g-mxY"/>
                     <connections>
+                        <outlet property="bottomLineView" destination="Fje-Up-axv" id="pzd-Xf-MSo"/>
+                        <outlet property="bottomLineViewLeadingConstraint" destination="KTf-Rf-h7K" id="utN-pI-PEj"/>
+                        <outlet property="bottomLineViewWidthConstraint" destination="1R3-4Z-ata" id="jWf-We-lI8"/>
+                        <outlet property="friendsButton" destination="0fW-tv-keZ" id="Rww-cR-5WX"/>
+                        <outlet property="friendsButtonWidthConstraint" destination="v2G-uZ-mAP" id="Rhl-O8-0Ch"/>
+                        <outlet property="recommendationsButton" destination="5xk-4f-CYW" id="obW-sK-P82"/>
+                        <outlet property="recommendationsButtonWidthConstraint" destination="ZYm-t2-WPA" id="DuI-hH-aN4"/>
+                        <outlet property="scrollView" destination="mrJ-9G-a0x" id="F3y-Je-262"/>
+                        <outlet property="stackView" destination="Xas-yb-qNz" id="n1M-Vb-WKF"/>
+                        <outlet property="subscribesButton" destination="Zsg-x4-hxZ" id="UHI-0n-YSj"/>
+                        <outlet property="subscribesButtonWidthConstraint" destination="G85-PF-jXs" id="tMM-Vn-Vwp"/>
                         <outlet property="tableView" destination="7RR-Hv-rOl" id="f3f-Yr-B9B"/>
                     </connections>
                 </viewController>

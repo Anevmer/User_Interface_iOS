@@ -38,8 +38,10 @@ private var allCommunities = [
 ]
 
 private var allNews = [
-    NewsModel(title: "Кот погладил сам себя!", description: "Никаких особенностей, просто взял и погладился о рядом стоящую стенку, ведь хозяева у него вечно занятые и на кота времени нет, вот и приходится бедняге самому о себе беспокоиться", imageUrlString: "", authorUserId: nil, authorCommunityId: 226),
-    NewsModel(title: "Новый кинчик", description: "Смотрим, оставляем комменты", imageUrlString: "", authorUserId: nil, authorCommunityId: 225)
+    NewsModel(id: 333, title: "Кот погладил сам себя!", description: "Никаких особенностей, просто взял и погладился о рядом стоящую стенку, ведь хозяева у него вечно занятые и на кота времени нет, вот и приходится бедняге самому о себе беспокоиться", imageUrlString: "", authorUserId: nil, authorCommunityId: 226),
+    NewsModel(id: 334, title: "Новый кинчик", description: "Смотрим, оставляем комменты", imageUrlString: "", authorUserId: nil, authorCommunityId: 225),
+    NewsModel(id: 335, title: "Ничего себе обои подъехали", description: "Смотрим, оставляем комменты", imageUrlString: "", authorUserId: nil, authorCommunityId: 231),
+    NewsModel(id: 336, title: "Зашел домой, поел супчика", description: "", imageUrlString: "", authorUserId: 124, authorCommunityId: nil),
 
 ]
 
@@ -79,6 +81,39 @@ func getOthersCommunities() -> [Community] {
 
 func getAllNews() -> [NewsModel] {
     return allNews
+}
+
+func getMySubscribesNew() -> [NewsModel] {
+    let myCommunitiesIds = getMyCommunities().map({$0.id})
+    return allNews.filter({myCommunitiesIds.contains($0.authorCommunityId ?? -1)})
+}
+
+func getMyFriendNew() -> [NewsModel] {
+    let myFriendsIds = getMyFriends().map({$0.id})
+    return allNews.filter({myFriendsIds.contains($0.authorUserId ?? -1)})
+}
+
+func getOtherNews() -> [NewsModel] {
+    let myCommunitiesIds = getMyCommunities().map({$0.id})
+    let myFriendsIds = getMyFriends().map({$0.id})
+    return allNews.filter({!myCommunitiesIds.contains($0.authorCommunityId ?? -1) && !myFriendsIds.contains($0.authorUserId ?? -1)})
+}
+
+func setIsLikeForNew(isLike: Bool, to newId: Int) {
+    guard let new = allNews.first(where: {$0.id == newId}) else { return }
+    guard let newIndex = allNews.firstIndex(where: {$0.id == newId}) else { return }
+    if isLike {
+        new.likesUsers.append(currentUserId)
+    }
+    else {
+        guard let userIndex = new.likesUsers.firstIndex(of: currentUserId) else { return }
+        new.likesUsers.remove(at: userIndex)
+    }
+    allNews[newIndex] = new
+}
+
+func getNewsForUserId(_ userId: Int) -> [NewsModel] {
+    return allNews.filter({$0.authorUserId == userId})
 }
 
 func addedCommunityToMyProfile(withCommunityId communityId: Int) -> Bool {
