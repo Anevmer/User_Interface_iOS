@@ -37,6 +37,12 @@ private var allCommunities = [
     Community(id: 232, name: "Игрули", avatarName: "group1", membersId: [123, 129]),
 ]
 
+private var allNews = [
+    NewsModel(title: "Кот погладил сам себя!", description: "Никаких особенностей, просто взял и погладился о рядом стоящую стенку, ведь хозяева у него вечно занятые и на кота времени нет, вот и приходится бедняге самому о себе беспокоиться", imageUrlString: "", authorUserId: nil, authorCommunityId: 226),
+    NewsModel(title: "Новый кинчик", description: "Смотрим, оставляем комменты", imageUrlString: "", authorUserId: nil, authorCommunityId: 225)
+
+]
+
 func getMyProfile() -> UserProfile? {
     guard let currentUserProfile = allUsers.first(where: { $0.id == currentUserId}) else { return nil }
     
@@ -54,7 +60,7 @@ func getMyFriends() -> [UserProfile] {
 }
 
 func getOtherUsers() -> [UserProfile] {
-    return allUsers.filter({!$0.friendsId.contains(currentUserId)})
+    return allUsers.filter({!$0.friendsId.contains(currentUserId) || $0.id != currentUserId})
 }
 
 func getCommunityWithId(communityId: Int) -> Community? {
@@ -69,6 +75,10 @@ func getMyCommunities() -> [Community] {
 
 func getOthersCommunities() -> [Community] {
     return allCommunities.filter({!$0.communityMembersId.contains(currentUserId)})
+}
+
+func getAllNews() -> [NewsModel] {
+    return allNews
 }
 
 func addedCommunityToMyProfile(withCommunityId communityId: Int) -> Bool {

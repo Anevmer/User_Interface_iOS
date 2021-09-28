@@ -11,20 +11,20 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="UserPhotoCollectionViewCell" id="gTV-IL-0wX" customClass="UserPhotoCollectionViewCell" customModule="VkontakteNevmerApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="94" height="104"/>
+            <rect key="frame" x="0.0" y="0.0" width="119" height="130"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="94" height="104"/>
+                <rect key="frame" x="0.0" y="0.0" width="119" height="130"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IDL-5d-lA3">
-                        <rect key="frame" x="0.0" y="0.0" width="94" height="104"/>
+                        <rect key="frame" x="0.0" y="0.0" width="119" height="130"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="exG-7U-40X">
-                                <rect key="frame" x="2" y="2" width="90" height="100"/>
+                                <rect key="frame" x="2" y="2" width="112.5" height="125"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="aCM-tz-gj9"/>
-                                    <constraint firstAttribute="width" constant="90" id="ufs-Gn-1kl"/>
+                                    <constraint firstAttribute="width" secondItem="exG-7U-40X" secondAttribute="height" multiplier="9:10" id="6y5-ow-7G7"/>
+                                    <constraint firstAttribute="height" constant="125" id="70B-Fi-86X"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -45,11 +45,11 @@
                 <constraint firstItem="IDL-5d-lA3" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="o1N-vg-nGe"/>
                 <constraint firstAttribute="trailing" secondItem="IDL-5d-lA3" secondAttribute="trailing" id="t8G-BI-pXg"/>
             </constraints>
-            <size key="customSize" width="92" height="109"/>
+            <size key="customSize" width="117" height="135"/>
             <connections>
                 <outlet property="imageView" destination="exG-7U-40X" id="yHI-6r-pN7"/>
             </connections>
-            <point key="canvasLocation" x="-207.24637681159422" y="-33.147321428571431"/>
+            <point key="canvasLocation" x="-189.13043478260872" y="-24.776785714285712"/>
         </collectionViewCell>
     </objects>
     <resources>

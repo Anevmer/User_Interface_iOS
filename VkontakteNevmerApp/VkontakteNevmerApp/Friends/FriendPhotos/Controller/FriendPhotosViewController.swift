@@ -11,8 +11,12 @@ class FriendPhotosViewController: UIViewController {
     
     // MARK: Outlets
     
+    @IBOutlet weak var avatarImageView: UIImageView!
+    @IBOutlet weak var fullNameLabel: UILabel!
+    @IBOutlet weak var lastOnlineLabel: UILabel!
+    @IBOutlet weak var friendActionButton: SecondaryButton!
+    @IBOutlet weak var photoLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var placeholderView: UIView!
     
     // MARK: Private properties
     
@@ -60,9 +64,12 @@ extension FriendPhotosViewController: UICollectionViewDataSource {
 extension FriendPhotosViewController {
     func loadData() {
         if let user = user {
-            title = user.name + " " + user.surname
+            fullNameLabel.text = user.name + " " + user.surname
+            avatarImageView.image = UIImage(named: user.avatarName)
+            lastOnlineLabel.text = "Был в сети давно..."
+            photoLabel.text = "ФОТОГРАФИИ \(user.photoNames.count)"
             userPhotos = user.photoNames.map({UserPhotoCollectionCellModel(photoName: $0)})
-            placeholderView.isHidden = userPhotos.count == 0 ? false : true
+//            placeholderView.isHidden = userPhotos.count == 0 ? false : true
             collectionView.reloadData()
         }
     }

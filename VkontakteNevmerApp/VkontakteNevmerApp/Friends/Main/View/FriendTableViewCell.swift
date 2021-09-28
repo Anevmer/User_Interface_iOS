@@ -30,6 +30,22 @@ class FriendTableViewCell: UITableViewCell {
         super.awakeFromNib()
         applyStyle()
     }
+    
+    // MARK: Actions
+    
+    @objc private func tapImageView() {
+        avatarImageView.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+        UIView.animate(
+            withDuration: 1.6,
+            delay: 0,
+            usingSpringWithDamping: 0.4,
+            initialSpringVelocity: 0.2,
+            options: .curveEaseOut,
+            animations: {
+                self.avatarImageView.transform = CGAffineTransform(scaleX: 1, y: 1)
+            },
+            completion: nil)
+    }
 
     // MARK: Public methods
     
@@ -44,6 +60,10 @@ class FriendTableViewCell: UITableViewCell {
     // MARK: Private methods
     
     func applyStyle() {
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapImageView))
+        avatarImageView.addGestureRecognizer(gestureRecognizer)
+        avatarImageView.isUserInteractionEnabled = true
+        
         selectionStyle = .none
         selectedBackgroundView?.backgroundColor = .clear
         avatarImageView.layer.cornerRadius = avatarImageView.bounds.height / 2
