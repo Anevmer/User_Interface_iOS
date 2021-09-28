@@ -16,6 +16,8 @@
 		D8400C0D26F38D5200953E8D /* PhotoViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8400C0C26F38D5200953E8D /* PhotoViewerViewController.swift */; };
 		D8400C1026F38D6100953E8D /* PhotoViewer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8400C0F26F38D6100953E8D /* PhotoViewer.storyboard */; };
 		D8400C1526F392AE00953E8D /* ImageViewZoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8400C1426F392AE00953E8D /* ImageViewZoom.swift */; };
+		D8400C4226F9062F00953E8D /* PopAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8400C4126F9062E00953E8D /* PopAnimation.swift */; };
+		D8400C4626F9063B00953E8D /* PushAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8400C4526F9063B00953E8D /* PushAnimation.swift */; };
 		D8545C6826C5AA410061F397 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8545C6726C5AA410061F397 /* AppDelegate.swift */; };
 		D8545C6A26C5AA410061F397 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8545C6926C5AA410061F397 /* SceneDelegate.swift */; };
 		D8545C6C26C5AA410061F397 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8545C6B26C5AA410061F397 /* ViewController.swift */; };
@@ -69,6 +71,8 @@
 		D8400C0C26F38D5200953E8D /* PhotoViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewerViewController.swift; sourceTree = "<group>"; };
 		D8400C0F26F38D6100953E8D /* PhotoViewer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PhotoViewer.storyboard; sourceTree = "<group>"; };
 		D8400C1426F392AE00953E8D /* ImageViewZoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewZoom.swift; sourceTree = "<group>"; };
+		D8400C4126F9062E00953E8D /* PopAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopAnimation.swift; sourceTree = "<group>"; };
+		D8400C4526F9063B00953E8D /* PushAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushAnimation.swift; sourceTree = "<group>"; };
 		D8545C6426C5AA410061F397 /* VkontakteNevmerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VkontakteNevmerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8545C6726C5AA410061F397 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8545C6926C5AA410061F397 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -151,6 +155,15 @@
 				D830A7F626D57970005286D5 /* DataBase.swift */,
 			);
 			path = DataBase;
+			sourceTree = "<group>";
+		};
+		D8400C4026F9061C00953E8D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D8400C4126F9062E00953E8D /* PopAnimation.swift */,
+				D8400C4526F9063B00953E8D /* PushAnimation.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		D8545C5B26C5AA410061F397 = {
@@ -407,6 +420,7 @@
 		D875BDCD26D3AC0F00DEDBEE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				D8400C4026F9061C00953E8D /* Model */,
 				D875BDCE26D3AC2C00DEDBEE /* NavigationController.swift */,
 			);
 			path = Controller;
@@ -688,7 +702,9 @@
 				D875BDDF26D3B26300DEDBEE /* CommunityTableViewCell.swift in Sources */,
 				D830A7ED26D5740A005286D5 /* Community.swift in Sources */,
 				D875BDEE26D3B79B00DEDBEE /* SettingsViewController.swift in Sources */,
+				D8400C4626F9063B00953E8D /* PushAnimation.swift in Sources */,
 				D8400C0D26F38D5200953E8D /* PhotoViewerViewController.swift in Sources */,
+				D8400C4226F9062F00953E8D /* PopAnimation.swift in Sources */,
 				D88C56A126E9594600D1B73E /* NewsViewController.swift in Sources */,
 				D830A7F726D57970005286D5 /* DataBase.swift in Sources */,
 				D830A7E226D57211005286D5 /* UserPhotoCollectionViewCell.swift in Sources */,
