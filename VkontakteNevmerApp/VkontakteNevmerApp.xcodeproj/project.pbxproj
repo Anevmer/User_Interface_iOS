@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		31A5A6FDFE485D0E600C04DD /* Pods_VkontakteNevmerApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 646826D1508B53D419255253 /* Pods_VkontakteNevmerApp.framework */; };
 		D830A7E226D57211005286D5 /* UserPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D830A7E026D57211005286D5 /* UserPhotoCollectionViewCell.swift */; };
 		D830A7E326D57211005286D5 /* UserPhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D830A7E126D57211005286D5 /* UserPhotoCollectionViewCell.xib */; };
 		D830A7E926D573E7005286D5 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D830A7E826D573E7005286D5 /* UserProfile.swift */; };
@@ -62,6 +63,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		10AA88BA3D9E38721C66C579 /* Pods-VkontakteNevmerApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VkontakteNevmerApp.release.xcconfig"; path = "Target Support Files/Pods-VkontakteNevmerApp/Pods-VkontakteNevmerApp.release.xcconfig"; sourceTree = "<group>"; };
+		646826D1508B53D419255253 /* Pods_VkontakteNevmerApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VkontakteNevmerApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FC641D566EBE9396FD8B11F /* Pods-VkontakteNevmerApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VkontakteNevmerApp.debug.xcconfig"; path = "Target Support Files/Pods-VkontakteNevmerApp/Pods-VkontakteNevmerApp.debug.xcconfig"; sourceTree = "<group>"; };
 		D830A7E026D57211005286D5 /* UserPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		D830A7E126D57211005286D5 /* UserPhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserPhotoCollectionViewCell.xib; sourceTree = "<group>"; };
 		D830A7E826D573E7005286D5 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
@@ -123,12 +127,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31A5A6FDFE485D0E600C04DD /* Pods_VkontakteNevmerApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9BCCD182E44F3959422C4302 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				646826D1508B53D419255253 /* Pods_VkontakteNevmerApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D830A7E526D573B6005286D5 /* Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +184,8 @@
 			children = (
 				D8545C6626C5AA410061F397 /* VkontakteNevmerApp */,
 				D8545C6526C5AA410061F397 /* Products */,
+				F0FA0CF5FD81FDDCCC942CEA /* Pods */,
+				9BCCD182E44F3959422C4302 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -589,6 +604,16 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		F0FA0CF5FD81FDDCCC942CEA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9FC641D566EBE9396FD8B11F /* Pods-VkontakteNevmerApp.debug.xcconfig */,
+				10AA88BA3D9E38721C66C579 /* Pods-VkontakteNevmerApp.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -596,9 +621,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D8545C7826C5AA440061F397 /* Build configuration list for PBXNativeTarget "VkontakteNevmerApp" */;
 			buildPhases = (
+				7E9937D443BF7524D557E428 /* [CP] Check Pods Manifest.lock */,
 				D8545C6026C5AA410061F397 /* Sources */,
 				D8545C6126C5AA410061F397 /* Frameworks */,
 				D8545C6226C5AA410061F397 /* Resources */,
+				2E54C04D5E269A0E225AE3B0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -666,6 +693,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2E54C04D5E269A0E225AE3B0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VkontakteNevmerApp/Pods-VkontakteNevmerApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VkontakteNevmerApp/Pods-VkontakteNevmerApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VkontakteNevmerApp/Pods-VkontakteNevmerApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7E9937D443BF7524D557E428 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VkontakteNevmerApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D8545C6026C5AA410061F397 /* Sources */ = {
@@ -851,6 +920,7 @@
 		};
 		D8545C7926C5AA440061F397 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9FC641D566EBE9396FD8B11F /* Pods-VkontakteNevmerApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -870,6 +940,7 @@
 		};
 		D8545C7A26C5AA440061F397 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 10AA88BA3D9E38721C66C579 /* Pods-VkontakteNevmerApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
