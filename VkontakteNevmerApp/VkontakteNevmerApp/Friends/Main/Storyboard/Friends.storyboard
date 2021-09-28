@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ODK-cX-JZQ">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Friends View Controller-->
+        <scene sceneID="yxf-Vh-OH1">
+            <objects>
+                <viewController id="p8b-WF-dAn" customClass="FriendsViewController" customModule="VkontakteNevmerApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Rqb-QF-Jra">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2kP-nb-TEc">
+                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="p8b-WF-dAn" id="PqE-bz-zpI"/>
+                                    <outlet property="delegate" destination="p8b-WF-dAn" id="qGg-tG-Xyh"/>
+                                </connections>
+                            </tableView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XhV-Tn-unN">
+                                <rect key="frame" x="0.0" y="88" width="375" height="32"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="pES-5y-pfh">
+                                        <rect key="frame" x="16" y="0.0" width="343" height="32"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aXQ-7D-M1k">
+                                                <rect key="frame" x="0.0" y="0.0" width="151.66666666666666" height="32"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M9m-uS-0Ya">
+                                                        <rect key="frame" x="25.666666666666657" y="0.0" width="100" height="32"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="100" id="1DU-WA-zfO"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <state key="normal" title="Мои друзья"/>
+                                                        <connections>
+                                                            <action selector="myFriendsButtonTapped:" destination="p8b-WF-dAn" eventType="touchUpInside" id="e3N-km-hfB"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="M9m-uS-0Ya" secondAttribute="bottom" id="p1F-SY-wzI"/>
+                                                    <constraint firstItem="M9m-uS-0Ya" firstAttribute="top" secondItem="aXQ-7D-M1k" secondAttribute="top" id="vXs-AM-2F2"/>
+                                                    <constraint firstItem="M9m-uS-0Ya" firstAttribute="centerX" secondItem="aXQ-7D-M1k" secondAttribute="centerX" id="xj0-et-gHY"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1hF-Zy-bMG">
+                                                <rect key="frame" x="191.66666666666663" y="0.0" width="151.33333333333337" height="32"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wb2-Ds-ebf">
+                                                        <rect key="frame" x="18" y="0.0" width="115" height="32"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="115" id="Zph-rd-St7"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <state key="normal" title="Найти друзей"/>
+                                                        <connections>
+                                                            <action selector="searchFriendsButtonTapped:" destination="p8b-WF-dAn" eventType="touchUpInside" id="cg5-Od-MuC"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="wb2-Ds-ebf" firstAttribute="centerX" secondItem="1hF-Zy-bMG" secondAttribute="centerX" id="0ue-hH-uNs"/>
+                                                    <constraint firstAttribute="bottom" secondItem="wb2-Ds-ebf" secondAttribute="bottom" id="D9R-3W-1eb"/>
+                                                    <constraint firstItem="wb2-Ds-ebf" firstAttribute="top" secondItem="1hF-Zy-bMG" secondAttribute="top" id="xQD-AA-wkX"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jvw-sn-fk0">
+                                        <rect key="frame" x="50" y="30" width="60" height="2"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="2" id="1fq-7I-Nfl"/>
+                                            <constraint firstAttribute="width" constant="60" id="Yxw-is-Qxf"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="pES-5y-pfh" secondAttribute="bottom" id="3qc-Cm-g8k"/>
+                                    <constraint firstAttribute="trailing" secondItem="pES-5y-pfh" secondAttribute="trailing" constant="16" id="HLd-c4-oH1"/>
+                                    <constraint firstItem="pES-5y-pfh" firstAttribute="top" secondItem="XhV-Tn-unN" secondAttribute="top" id="Juc-Nm-SzL"/>
+                                    <constraint firstAttribute="height" constant="32" id="PQv-aZ-OGj"/>
+                                    <constraint firstItem="Jvw-sn-fk0" firstAttribute="leading" secondItem="XhV-Tn-unN" secondAttribute="leading" constant="50" id="aLH-C0-Suf"/>
+                                    <constraint firstItem="pES-5y-pfh" firstAttribute="leading" secondItem="XhV-Tn-unN" secondAttribute="leading" constant="16" id="j3S-TX-dxM"/>
+                                    <constraint firstAttribute="bottom" secondItem="Jvw-sn-fk0" secondAttribute="bottom" id="kDV-Rf-mWL"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="BDd-nz-1f8"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="2kP-nb-TEc" firstAttribute="top" secondItem="BDd-nz-1f8" secondAttribute="top" id="4kP-0M-KJe"/>
+                            <constraint firstItem="XhV-Tn-unN" firstAttribute="leading" secondItem="BDd-nz-1f8" secondAttribute="leading" id="EXe-46-i1N"/>
+                            <constraint firstItem="2kP-nb-TEc" firstAttribute="leading" secondItem="BDd-nz-1f8" secondAttribute="leading" id="K66-FL-FyT"/>
+                            <constraint firstItem="XhV-Tn-unN" firstAttribute="top" secondItem="BDd-nz-1f8" secondAttribute="top" id="VC9-gp-NeW"/>
+                            <constraint firstItem="BDd-nz-1f8" firstAttribute="trailing" secondItem="XhV-Tn-unN" secondAttribute="trailing" id="h4m-Et-yAs"/>
+                            <constraint firstItem="BDd-nz-1f8" firstAttribute="bottom" secondItem="2kP-nb-TEc" secondAttribute="bottom" id="hTZ-5e-jXi"/>
+                            <constraint firstItem="BDd-nz-1f8" firstAttribute="trailing" secondItem="2kP-nb-TEc" secondAttribute="trailing" id="xry-cT-ey0"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="XbY-Do-yCW"/>
+                    <connections>
+                        <outlet property="bottomLineLeadingConstraint" destination="aLH-C0-Suf" id="MhX-tH-BXR"/>
+                        <outlet property="bottomLineView" destination="Jvw-sn-fk0" id="aI2-i3-6mz"/>
+                        <outlet property="bottomLineWidthConstraint" destination="Yxw-is-Qxf" id="Xaw-pp-18S"/>
+                        <outlet property="myFriendsButton" destination="M9m-uS-0Ya" id="WwF-b8-7cZ"/>
+                        <outlet property="myFriendsButtonWidthConstraint" destination="1DU-WA-zfO" id="pgJ-sr-vRT"/>
+                        <outlet property="searchFriendsButton" destination="wb2-Ds-ebf" id="e8k-Hx-57W"/>
+                        <outlet property="searchFriendsButtonWidthConstraint" destination="Zph-rd-St7" id="qys-1E-F4B"/>
+                        <outlet property="tableView" destination="2kP-nb-TEc" id="goF-UG-sm3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MCy-fd-w85" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="905.79710144927549" y="37.5"/>
+        </scene>
+        <!--Друзья-->
+        <scene sceneID="QND-a3-RHf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ODK-cX-JZQ" customClass="NavigationController" customModule="VkontakteNevmerApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Друзья" image="person.2" catalog="system" id="Qla-hK-wp1"/>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JES-pK-2RR">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="p8b-WF-dAn" kind="relationship" relationship="rootViewController" id="SDp-UK-slx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qqT-hy-Ujh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4.3478260869565224" y="37.5"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="person.2" catalog="system" width="128" height="81"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
