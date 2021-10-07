@@ -3,10 +3,19 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		31A5A6FDFE485D0E600C04DD /* Pods_VkontakteNevmerApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 646826D1508B53D419255253 /* Pods_VkontakteNevmerApp.framework */; };
+		D8062E4227035C1C0082DBE9 /* WebClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8062E4127035C1C0082DBE9 /* WebClient.swift */; };
+		D8062E4627035CBA0082DBE9 /* BaseServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8062E4527035CBA0082DBE9 /* BaseServiceError.swift */; };
+		D8062E4927035D0B0082DBE9 /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8062E4827035D0B0082DBE9 /* BaseResponse.swift */; };
+		D8062E4C27035D3A0082DBE9 /* BaseResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8062E4B27035D3A0082DBE9 /* BaseResponseError.swift */; };
+		D8062E4F270368A50082DBE9 /* ValidationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8062E4E270368A50082DBE9 /* ValidationManager.swift */; };
+		D8062E5227036A450082DBE9 /* TextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8062E5127036A450082DBE9 /* TextField.xib */; };
+		D8062E5527036AAB0082DBE9 /* IndentedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8062E5427036AAB0082DBE9 /* IndentedTextField.swift */; };
+		D8062E5927036E290082DBE9 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8062E5827036E290082DBE9 /* UserManager.swift */; };
 		D830A7E226D57211005286D5 /* UserPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D830A7E026D57211005286D5 /* UserPhotoCollectionViewCell.swift */; };
 		D830A7E326D57211005286D5 /* UserPhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D830A7E126D57211005286D5 /* UserPhotoCollectionViewCell.xib */; };
 		D830A7E926D573E7005286D5 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D830A7E826D573E7005286D5 /* UserProfile.swift */; };
@@ -62,6 +71,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		10AA88BA3D9E38721C66C579 /* Pods-VkontakteNevmerApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VkontakteNevmerApp.release.xcconfig"; path = "Target Support Files/Pods-VkontakteNevmerApp/Pods-VkontakteNevmerApp.release.xcconfig"; sourceTree = "<group>"; };
+		646826D1508B53D419255253 /* Pods_VkontakteNevmerApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VkontakteNevmerApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FC641D566EBE9396FD8B11F /* Pods-VkontakteNevmerApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VkontakteNevmerApp.debug.xcconfig"; path = "Target Support Files/Pods-VkontakteNevmerApp/Pods-VkontakteNevmerApp.debug.xcconfig"; sourceTree = "<group>"; };
+		D8062E4127035C1C0082DBE9 /* WebClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WebClient.swift; path = ../../../../../../WebClient.swift; sourceTree = "<group>"; };
+		D8062E4527035CBA0082DBE9 /* BaseServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseServiceError.swift; sourceTree = "<group>"; };
+		D8062E4827035D0B0082DBE9 /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
+		D8062E4B27035D3A0082DBE9 /* BaseResponseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponseError.swift; sourceTree = "<group>"; };
+		D8062E4E270368A50082DBE9 /* ValidationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationManager.swift; sourceTree = "<group>"; };
+		D8062E5127036A450082DBE9 /* TextField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextField.xib; sourceTree = "<group>"; };
+		D8062E5427036AAB0082DBE9 /* IndentedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndentedTextField.swift; sourceTree = "<group>"; };
+		D8062E5827036E290082DBE9 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		D830A7E026D57211005286D5 /* UserPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		D830A7E126D57211005286D5 /* UserPhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserPhotoCollectionViewCell.xib; sourceTree = "<group>"; };
 		D830A7E826D573E7005286D5 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
@@ -123,12 +143,32 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31A5A6FDFE485D0E600C04DD /* Pods_VkontakteNevmerApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9BCCD182E44F3959422C4302 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				646826D1508B53D419255253 /* Pods_VkontakteNevmerApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D8062E4027035BCF0082DBE9 /* WebClient */ = {
+			isa = PBXGroup;
+			children = (
+				D8062E4127035C1C0082DBE9 /* WebClient.swift */,
+				D8062E4527035CBA0082DBE9 /* BaseServiceError.swift */,
+				D8062E4827035D0B0082DBE9 /* BaseResponse.swift */,
+				D8062E4B27035D3A0082DBE9 /* BaseResponseError.swift */,
+			);
+			path = WebClient;
+			sourceTree = "<group>";
+		};
 		D830A7E526D573B6005286D5 /* Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +211,8 @@
 			children = (
 				D8545C6626C5AA410061F397 /* VkontakteNevmerApp */,
 				D8545C6526C5AA410061F397 /* Products */,
+				F0FA0CF5FD81FDDCCC942CEA /* Pods */,
+				9BCCD182E44F3959422C4302 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -211,6 +253,7 @@
 				D875BDC326D39E9700DEDBEE /* Model */,
 				D8545C8B26C5B7430061F397 /* Extensions */,
 				D8545C8A26C5B73C0061F397 /* View */,
+				D8062E4027035BCF0082DBE9 /* WebClient */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -245,8 +288,10 @@
 			children = (
 				D8545C9026C5B7AD0061F397 /* PrimaryButton.swift */,
 				D8545C9326C5B8A50061F397 /* SecondaryButton.swift */,
-				D8545C9626C5BDA80061F397 /* TextField.swift */,
+				D8062E5427036AAB0082DBE9 /* IndentedTextField.swift */,
 				D857C5FC26EE824A00E2181B /* LoadingView.swift */,
+				D8545C9626C5BDA80061F397 /* TextField.swift */,
+				D8062E5127036A450082DBE9 /* TextField.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -413,6 +458,8 @@
 			isa = PBXGroup;
 			children = (
 				D875BDC426D39EAA00DEDBEE /* Entity.swift */,
+				D8062E4E270368A50082DBE9 /* ValidationManager.swift */,
+				D8062E5827036E290082DBE9 /* UserManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -589,6 +636,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		F0FA0CF5FD81FDDCCC942CEA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9FC641D566EBE9396FD8B11F /* Pods-VkontakteNevmerApp.debug.xcconfig */,
+				10AA88BA3D9E38721C66C579 /* Pods-VkontakteNevmerApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -596,9 +652,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D8545C7826C5AA440061F397 /* Build configuration list for PBXNativeTarget "VkontakteNevmerApp" */;
 			buildPhases = (
+				7E9937D443BF7524D557E428 /* [CP] Check Pods Manifest.lock */,
 				D8545C6026C5AA410061F397 /* Sources */,
 				D8545C6126C5AA410061F397 /* Frameworks */,
 				D8545C6226C5AA410061F397 /* Resources */,
+				2E54C04D5E269A0E225AE3B0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -653,6 +711,7 @@
 				D875BDF126D3BD2E00DEDBEE /* FriendPhotos.storyboard in Resources */,
 				D875BDE026D3B26300DEDBEE /* CommunityTableViewCell.xib in Resources */,
 				D8545C7426C5AA440061F397 /* LaunchScreen.storyboard in Resources */,
+				D8062E5227036A450082DBE9 /* TextField.xib in Resources */,
 				D88C56A626E95A8600D1B73E /* NewsModelTableViewCell.xib in Resources */,
 				D875BDC126D39E6500DEDBEE /* FriendTableViewCell.xib in Resources */,
 				D8400C1026F38D6100953E8D /* PhotoViewer.storyboard in Resources */,
@@ -667,6 +726,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2E54C04D5E269A0E225AE3B0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VkontakteNevmerApp/Pods-VkontakteNevmerApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VkontakteNevmerApp/Pods-VkontakteNevmerApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VkontakteNevmerApp/Pods-VkontakteNevmerApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7E9937D443BF7524D557E428 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VkontakteNevmerApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D8545C6026C5AA410061F397 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -674,6 +775,7 @@
 			files = (
 				D8545C9126C5B7AD0061F397 /* PrimaryButton.swift in Sources */,
 				D8545C8626C5AC240061F397 /* SignInViewController.swift in Sources */,
+				D8062E5527036AAB0082DBE9 /* IndentedTextField.swift in Sources */,
 				D875BDF426D3BD4800DEDBEE /* FriendPhotosViewController.swift in Sources */,
 				D88C569426E943D800D1B73E /* Comment.swift in Sources */,
 				D88C569126E9428C00D1B73E /* NewsModel.swift in Sources */,
@@ -681,10 +783,14 @@
 				D875BDAA26D39A2200DEDBEE /* MainTabBarController.swift in Sources */,
 				D8545C6C26C5AA410061F397 /* ViewController.swift in Sources */,
 				D875BDC026D39E6500DEDBEE /* FriendTableViewCell.swift in Sources */,
+				D8062E4627035CBA0082DBE9 /* BaseServiceError.swift in Sources */,
 				D875BDCF26D3AC2C00DEDBEE /* NavigationController.swift in Sources */,
 				D8545C9726C5BDA80061F397 /* TextField.swift in Sources */,
+				D8062E4F270368A50082DBE9 /* ValidationManager.swift in Sources */,
+				D8062E4927035D0B0082DBE9 /* BaseResponse.swift in Sources */,
 				D8BB233226D79F8500E3D4AF /* ViewController+Additional.swift in Sources */,
 				D8545C9426C5B8A50061F397 /* SecondaryButton.swift in Sources */,
+				D8062E4227035C1C0082DBE9 /* WebClient.swift in Sources */,
 				D8400C1526F392AE00953E8D /* ImageViewZoom.swift in Sources */,
 				D88C56A526E95A8600D1B73E /* NewsModelTableViewCell.swift in Sources */,
 				D875BDDA26D3AF0C00DEDBEE /* CommunityViewController.swift in Sources */,
@@ -699,6 +805,7 @@
 				D830A7E926D573E7005286D5 /* UserProfile.swift in Sources */,
 				D875BDE526D3B29D00DEDBEE /* CommunityTableCellModel.swift in Sources */,
 				D8545C8E26C5B77E0061F397 /* UIColor.swift in Sources */,
+				D8062E4C27035D3A0082DBE9 /* BaseResponseError.swift in Sources */,
 				D875BDDF26D3B26300DEDBEE /* CommunityTableViewCell.swift in Sources */,
 				D830A7ED26D5740A005286D5 /* Community.swift in Sources */,
 				D875BDEE26D3B79B00DEDBEE /* SettingsViewController.swift in Sources */,
@@ -708,6 +815,7 @@
 				D88C56A126E9594600D1B73E /* NewsViewController.swift in Sources */,
 				D830A7F726D57970005286D5 /* DataBase.swift in Sources */,
 				D830A7E226D57211005286D5 /* UserPhotoCollectionViewCell.swift in Sources */,
+				D8062E5927036E290082DBE9 /* UserManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -851,6 +959,7 @@
 		};
 		D8545C7926C5AA440061F397 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9FC641D566EBE9396FD8B11F /* Pods-VkontakteNevmerApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -870,6 +979,7 @@
 		};
 		D8545C7A26C5AA440061F397 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 10AA88BA3D9E38721C66C579 /* Pods-VkontakteNevmerApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

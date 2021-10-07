@@ -11,9 +11,9 @@ class SignInViewController: UIViewController {
     
     // MARK: Outlets
     
-    @IBOutlet weak var loginTitleLabel: UILabel!
+    
+    @IBOutlet weak var mainStackView: UIStackView!
     @IBOutlet weak var loginTextField: TextField!
-    @IBOutlet weak var passwordTitleLabel: UILabel!
     @IBOutlet weak var passwordTextField: TextField!
     @IBOutlet weak var signInButton: PrimaryButton!
     @IBOutlet weak var signUpButton: SecondaryButton!
@@ -29,6 +29,7 @@ class SignInViewController: UIViewController {
 
         printDescription()
         initializeSetup()
+        applyStyle()
         setupText()
     }
     
@@ -59,9 +60,9 @@ class SignInViewController: UIViewController {
             showMain()
         }
         navigationController?.navigationBar.isHidden = true
-        passwordTextField.isSecureTextEntry = true
-        loginTextField.delegate = self
-        passwordTextField.delegate = self
+        passwordTextField.textField.isSecureTextEntry = true
+//        loginTextField.delegate = self
+//        passwordTextField.delegate = self
     }
     
     private func checkLogin() {
@@ -78,24 +79,24 @@ class SignInViewController: UIViewController {
                     self.showMain()
                 }
                 else {
-                    self.setErrorStyle()
+//                    self.setErrorStyle()
                 }
             }
             else {
-                self.setErrorStyle()
+//                self.setErrorStyle()
             }
             self.loadingView.stopAnimate()
         }
     }
     
-    private func setErrorStyle() {
-        hideActivityIndicator()
-        loginTextField.setErrorStyle()
-        passwordTextField.setErrorStyle()
-        let alertController = UIAlertController(title: "Информация", message: "Не верный логин или пароль", preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-        present(alertController, animated: true, completion: nil)
-    }
+//    private func setErrorStyle() {
+//        hideActivityIndicator()
+//        loginTextField.setErrorStyle()
+//        passwordTextField.setErrorStyle()
+//        let alertController = UIAlertController(title: "Информация", message: "Не верный логин или пароль", preferredStyle: .alert)
+//        alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+//        present(alertController, animated: true, completion: nil)
+//    }
     
     private func printDescription() {
         print ("""
@@ -115,26 +116,34 @@ class SignInViewController: UIViewController {
 
 // MARK: Extension for UITextFieldDelegate
 
-extension SignInViewController: UITextFieldDelegate {
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        if let textField = textField as? TextField {
-            textField.setNormalStyle()
-        }
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        switch textField {
-        case loginTextField:
-            if let login = loginTextField.text, login == "" {
-                loginTextField.setErrorStyle()
-            }
-        case passwordTextField:
-            if let password = loginTextField.text, password == "" {
-                passwordTextField.setErrorStyle()
-            }
-        default:
-            break
-        }
+//extension SignInViewController: UITextFieldDelegate {
+//    func textFieldDidBeginEditing(_ textField: UITextField) {
+//        if let textField = textField as? TextField {
+//            textField.setNormalStyle()
+//        }
+//    }
+//
+//    func textFieldDidEndEditing(_ textField: UITextField) {
+//        switch textField {
+//        case loginTextField:
+//            if let login = loginTextField.text, login == "" {
+//                loginTextField.setErrorStyle()
+//            }
+//        case passwordTextField:
+//            if let password = loginTextField.text, password == "" {
+//                passwordTextField.setErrorStyle()
+//            }
+//        default:
+//            break
+//        }
+//    }
+//}
+
+// MARK: Extension for styling
+
+private extension SignInViewController {
+    func applyStyle() {
+        mainStackView.setCustomSpacing(2, after: loginTextField)
     }
 }
 
@@ -142,8 +151,8 @@ extension SignInViewController: UITextFieldDelegate {
 
 private extension SignInViewController {
     func setupText() {
-        loginTitleLabel.text = "Логин или почта"
-        passwordTitleLabel.text = "Пароль"
+        loginTextField.titleLabel.text = "Телефон или почта"
+        passwordTextField.titleLabel.text = "Пароль"
         signInButton.setTitle("Войти", for: .normal)
         signUpButton.setTitle("Зарегистрироваться", for: .normal)
     }
