@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0di-kt-Afv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uNa-Iz-Y9R">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -122,6 +122,41 @@
             </objects>
             <point key="canvasLocation" x="138.75" y="-94.014084507042256"/>
         </scene>
+        <!--Login View Controller-->
+        <scene sceneID="L6B-1I-hRC">
+            <objects>
+                <viewController storyboardIdentifier="VKLoginViewController" id="KIS-DC-9Ae" customClass="VKLoginViewController" customModule="VkontakteNevmerApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ctG-LV-SM0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wPb-JL-ocd">
+                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Sle-uc-2tN"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Sle-uc-2tN" firstAttribute="trailing" secondItem="wPb-JL-ocd" secondAttribute="trailing" id="UB2-nq-E12"/>
+                            <constraint firstItem="wPb-JL-ocd" firstAttribute="top" secondItem="Sle-uc-2tN" secondAttribute="top" id="qpY-DG-vpe"/>
+                            <constraint firstItem="Sle-uc-2tN" firstAttribute="bottom" secondItem="wPb-JL-ocd" secondAttribute="bottom" id="vv7-oG-wsu"/>
+                            <constraint firstItem="wPb-JL-ocd" firstAttribute="leading" secondItem="Sle-uc-2tN" secondAttribute="leading" id="zcV-rr-uvH"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="64f-XP-JDX"/>
+                    <connections>
+                        <outlet property="webView" destination="wPb-JL-ocd" id="h8N-hv-UTV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LLZ-Ut-Cgx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139" y="619"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Nfi-mT-sbC">
             <objects>
@@ -139,6 +174,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0VO-sp-DhQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-858.75" y="-94.014084507042256"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="HgQ-MF-3Qa">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uNa-Iz-Y9R" customClass="NavigationController" customModule="VkontakteNevmerApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Rxm-Bk-2bg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="KIS-DC-9Ae" kind="relationship" relationship="rootViewController" id="lZv-rs-Fc9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HJo-pp-WmN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-859" y="619"/>
         </scene>
     </scenes>
     <resources>

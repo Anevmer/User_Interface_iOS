@@ -23,7 +23,7 @@ class BaseResponseError: Mappable {
     
     // Mappable
     func mapping(map: Map) {
-        message <- map["message"]
-        code    <- map["code"]
+        message <- map["error_msg"]
+        code    <- map["error_code"]
     }
 }

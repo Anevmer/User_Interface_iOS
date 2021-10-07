@@ -16,7 +16,7 @@ class UserManager {
     
     var isAuthorized: Bool {
         get {
-            return UserDefaults.standard.string(forKey: "accessToken") != ""
+            return UserDefaults.standard.string(forKey: "accessToken") != nil
         }
     }
     

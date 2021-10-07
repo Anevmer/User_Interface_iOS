@@ -29,7 +29,7 @@ class SettingsViewController: UIViewController {
         ac.addAction(UIAlertAction(title: "Нет", style: .default, handler: nil))
         ac.addAction(UIAlertAction(title: "Да", style: .default, handler: { [weak self] _ in
             guard let self = self else { return }
-            UserDefaults.standard.removeObject(forKey: "AccessToken")
+            UserManager.shared.removeCredentials()
             self.tabBarController?.navigationController?.popToRootViewController(animated: true)
         }))
         present(ac, animated: true, completion: nil)
