@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class FriendTableViewCell: UITableViewCell {
     
@@ -15,12 +16,13 @@ class FriendTableViewCell: UITableViewCell {
     @IBOutlet weak var fullNameLabel: UILabel!
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var avatarContainreView: UIView!
+    @IBOutlet weak var descriptionLabel: UILabel!
     
     // MARK: Public properties
     
     @IBInspectable var shadowColor: UIColor = .black
-    @IBInspectable var shadowRadius: CGFloat = 6.0
-    @IBInspectable var shadowOpacity: CGFloat = 0.1
+    @IBInspectable var shadowRadius: CGFloat = 2.0
+    @IBInspectable var shadowOpacity: CGFloat = 0.4
     
     // MARK: Private properties
     
@@ -49,12 +51,24 @@ class FriendTableViewCell: UITableViewCell {
 
     // MARK: Public methods
     
-    func configure(withEntity entity: Entity) {
-        if let model = entity as? FriendTableCellModel {
-            fullNameLabel.text = model.fullName
-            avatarImageView.image = UIImage(named: model.imageName ?? "userAvatarPlaceholderIcon")
-
+    func configure(withModel model: FriendTableCellModel) {
+        fullNameLabel.text = model.fullName
+        if let avatarUrl = model.imageUrl,
+           let url = URL(string: avatarUrl) {
+            avatarImageView.kf.indicatorType = .activity
+            avatarImageView.kf.setImage(with: url)
         }
+        
+        else if let avatarName = model.imageName {
+            avatarImageView.image = UIImage(named: avatarName)
+        }
+        else {
+            avatarImageView.image = UIImage(named: "userAvatarPlaceholderIcon")
+        }
+        if model.isOnline {
+            setupOnlineIcon(isMobile: model.isMobile)
+        }
+        descriptionLabel.text = model.age
     }
 
     // MARK: Private methods
@@ -75,5 +89,29 @@ class FriendTableViewCell: UITableViewCell {
         avatarContainreView.layer.shadowRadius = shadowRadius
         avatarContainreView.layer.shadowOpacity = Float(shadowOpacity)
 
+    }
+    
+    func setupOnlineIcon(isMobile: Bool) {
+        let view = UIView()
+        if isMobile {
+            view.backgroundColor = .white
+            view.frame = CGRect(x: avatarImageView.frame.maxX-10, y: avatarImageView.frame.maxY-10, width: 11, height: 16)
+            view.layer.cornerRadius = 2
+            let iconImageView = UIImageView(frame: CGRect(x: 0.5, y: 0.5, width: 10, height: 15))
+            iconImageView.contentMode = .scaleAspectFill
+            iconImageView.image = UIImage(named: "mobileOnlineIcon")
+            view.addSubview(iconImageView)
+            avatarContainreView.addSubview(view)
+        }
+        else {
+            view.backgroundColor = .white
+            view.frame = CGRect(x: avatarImageView.frame.maxX-10, y: avatarImageView.frame.maxY-10, width: 10, height: 10)
+            view.layer.cornerRadius = 5
+            let dotView = UIView(frame: CGRect(x: 1, y: 1, width: 8, height: 8))
+            dotView.backgroundColor = .black
+            dotView.layer.cornerRadius = 4
+            view.addSubview(dotView)
+            avatarContainreView.addSubview(view)
+        }
     }
 }

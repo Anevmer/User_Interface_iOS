@@ -10,6 +10,6 @@ import Alamofire
 
 protocol FriendsService {
     
-    func getFriends(_ completion: @escaping (_ friends: BaseResponse?, _ error: BaseServiceError?) -> Void) -> Request?
+    @discardableResult func getFriends(_ completion: @escaping (_ friends: [FriendModel]?, _ error: BaseServiceError?) -> Void) -> Request?
     
 }
