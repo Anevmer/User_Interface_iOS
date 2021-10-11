@@ -75,6 +75,11 @@
 		D898E2C627147628004D8A9B /* FriendsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D898E2C527147628004D8A9B /* FriendsTableViewDataSource.swift */; };
 		D898E2CB27149BD1004D8A9B /* Date+Addition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D898E2CA27149BD0004D8A9B /* Date+Addition.swift */; };
 		D898E2CE27149E98004D8A9B /* Int+Addition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D898E2CD27149E98004D8A9B /* Int+Addition.swift */; };
+		D898E2E02714AD5A004D8A9B /* CommunityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D898E2DF2714AD5A004D8A9B /* CommunityService.swift */; };
+		D898E2E42714AD70004D8A9B /* CommunityServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D898E2E32714AD70004D8A9B /* CommunityServiceImpl.swift */; };
+		D898E2E72714AE03004D8A9B /* GetCommunitiesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D898E2E62714AE03004D8A9B /* GetCommunitiesResponse.swift */; };
+		D898E2EA2714AE61004D8A9B /* CommunityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D898E2E92714AE61004D8A9B /* CommunityModel.swift */; };
+		D898E2ED2714B20D004D8A9B /* CommunitiesTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D898E2EC2714B20D004D8A9B /* CommunitiesTableViewDataSource.swift */; };
 		D8BB233226D79F8500E3D4AF /* ViewController+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BB233126D79F8500E3D4AF /* ViewController+Additional.swift */; };
 /* End PBXBuildFile section */
 
@@ -151,6 +156,11 @@
 		D898E2C527147628004D8A9B /* FriendsTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewDataSource.swift; sourceTree = "<group>"; };
 		D898E2CA27149BD0004D8A9B /* Date+Addition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Addition.swift"; sourceTree = "<group>"; };
 		D898E2CD27149E98004D8A9B /* Int+Addition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Addition.swift"; sourceTree = "<group>"; };
+		D898E2DF2714AD5A004D8A9B /* CommunityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityService.swift; sourceTree = "<group>"; };
+		D898E2E32714AD70004D8A9B /* CommunityServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityServiceImpl.swift; sourceTree = "<group>"; };
+		D898E2E62714AE03004D8A9B /* GetCommunitiesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCommunitiesResponse.swift; sourceTree = "<group>"; };
+		D898E2E92714AE61004D8A9B /* CommunityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityModel.swift; sourceTree = "<group>"; };
+		D898E2EC2714B20D004D8A9B /* CommunitiesTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunitiesTableViewDataSource.swift; sourceTree = "<group>"; };
 		D8BB233126D79F8500E3D4AF /* ViewController+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Additional.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -498,6 +508,7 @@
 		D875BDD126D3AD8D00DEDBEE /* Community */ = {
 			isa = PBXGroup;
 			children = (
+				D898E2DD2714ACEA004D8A9B /* Service */,
 				D875BDDC26D3B23A00DEDBEE /* View */,
 				D875BDE226D3B26600DEDBEE /* Model */,
 				D875BDD326D3ADA500DEDBEE /* Search */,
@@ -553,6 +564,8 @@
 			isa = PBXGroup;
 			children = (
 				D875BDE426D3B29D00DEDBEE /* CommunityTableCellModel.swift */,
+				D898E2E92714AE61004D8A9B /* CommunityModel.swift */,
+				D898E2EC2714B20D004D8A9B /* CommunitiesTableViewDataSource.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -672,6 +685,24 @@
 			isa = PBXGroup;
 			children = (
 				D898E2A7270F174F004D8A9B /* GetFriendsResponse.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		D898E2DD2714ACEA004D8A9B /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				D898E2DE2714ACF7004D8A9B /* Response */,
+				D898E2DF2714AD5A004D8A9B /* CommunityService.swift */,
+				D898E2E32714AD70004D8A9B /* CommunityServiceImpl.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		D898E2DE2714ACF7004D8A9B /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				D898E2E62714AE03004D8A9B /* GetCommunitiesResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -815,6 +846,7 @@
 			files = (
 				D8545C9126C5B7AD0061F397 /* PrimaryButton.swift in Sources */,
 				D8545C8626C5AC240061F397 /* SignInViewController.swift in Sources */,
+				D898E2EA2714AE61004D8A9B /* CommunityModel.swift in Sources */,
 				D8062E5527036AAB0082DBE9 /* IndentedTextField.swift in Sources */,
 				D875BDF426D3BD4800DEDBEE /* FriendPhotosViewController.swift in Sources */,
 				D88C569426E943D800D1B73E /* Comment.swift in Sources */,
@@ -822,6 +854,7 @@
 				D857C5FD26EE824A00E2181B /* LoadingView.swift in Sources */,
 				D898E2A8270F174F004D8A9B /* GetFriendsResponse.swift in Sources */,
 				D898E2A1270F10C9004D8A9B /* FriendsService.swift in Sources */,
+				D898E2E72714AE03004D8A9B /* GetCommunitiesResponse.swift in Sources */,
 				D875BDAA26D39A2200DEDBEE /* MainTabBarController.swift in Sources */,
 				D8545C6C26C5AA410061F397 /* ViewController.swift in Sources */,
 				D875BDC026D39E6500DEDBEE /* FriendTableViewCell.swift in Sources */,
@@ -845,6 +878,7 @@
 				D8545C6826C5AA410061F397 /* AppDelegate.swift in Sources */,
 				D875BDC926D39EEA00DEDBEE /* FriendTableCellModel.swift in Sources */,
 				D830A7FC26D588E5005286D5 /* UserPhotoCollectionCellModel.swift in Sources */,
+				D898E2ED2714B20D004D8A9B /* CommunitiesTableViewDataSource.swift in Sources */,
 				D8545C6A26C5AA410061F397 /* SceneDelegate.swift in Sources */,
 				D830A7E926D573E7005286D5 /* UserProfile.swift in Sources */,
 				D875BDE526D3B29D00DEDBEE /* CommunityTableCellModel.swift in Sources */,
@@ -853,6 +887,7 @@
 				D8062E4C27035D3A0082DBE9 /* BaseResponseError.swift in Sources */,
 				D898E2C327146363004D8A9B /* FriendModel.swift in Sources */,
 				D875BDDF26D3B26300DEDBEE /* CommunityTableViewCell.swift in Sources */,
+				D898E2E42714AD70004D8A9B /* CommunityServiceImpl.swift in Sources */,
 				D830A7ED26D5740A005286D5 /* Community.swift in Sources */,
 				D875BDEE26D3B79B00DEDBEE /* SettingsViewController.swift in Sources */,
 				D8400C4626F9063B00953E8D /* PushAnimation.swift in Sources */,
@@ -860,6 +895,7 @@
 				D8400C4226F9062F00953E8D /* PopAnimation.swift in Sources */,
 				D88C56A126E9594600D1B73E /* NewsViewController.swift in Sources */,
 				D830A7F726D57970005286D5 /* DataBase.swift in Sources */,
+				D898E2E02714AD5A004D8A9B /* CommunityService.swift in Sources */,
 				D898E2C627147628004D8A9B /* FriendsTableViewDataSource.swift in Sources */,
 				D898E2CE27149E98004D8A9B /* Int+Addition.swift in Sources */,
 				D830A7E226D57211005286D5 /* UserPhotoCollectionViewCell.swift in Sources */,

@@ -58,13 +58,13 @@ class FriendTableViewCell: UITableViewCell {
             avatarImageView.kf.indicatorType = .activity
             avatarImageView.kf.setImage(with: url)
         }
-        
         else if let avatarName = model.imageName {
             avatarImageView.image = UIImage(named: avatarName)
         }
         else {
             avatarImageView.image = UIImage(named: "userAvatarPlaceholderIcon")
         }
+        
         if model.isOnline {
             setupOnlineIcon(isMobile: model.isMobile)
         }
@@ -105,11 +105,11 @@ class FriendTableViewCell: UITableViewCell {
         }
         else {
             view.backgroundColor = .white
-            view.frame = CGRect(x: avatarImageView.frame.maxX-10, y: avatarImageView.frame.maxY-10, width: 10, height: 10)
+            view.frame = CGRect(x: avatarImageView.frame.maxX-12, y: avatarImageView.frame.maxY-12, width: 10, height: 10)
             view.layer.cornerRadius = 5
-            let dotView = UIView(frame: CGRect(x: 1, y: 1, width: 8, height: 8))
+            let dotView = UIView(frame: CGRect(x: 2, y: 2, width: 6, height: 6))
             dotView.backgroundColor = .black
-            dotView.layer.cornerRadius = 4
+            dotView.layer.cornerRadius = 3
             view.addSubview(dotView)
             avatarContainreView.addSubview(view)
         }

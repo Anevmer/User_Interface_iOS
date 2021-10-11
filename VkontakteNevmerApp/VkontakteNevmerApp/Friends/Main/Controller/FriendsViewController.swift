@@ -31,6 +31,7 @@ class FriendsViewController: UIViewController {
     private var service: FriendsService!
     private var myFriends: [TableViewCompatible] = []
     private var dataSource: FriendsTableViewDataSource!
+    private var loadingView: LoadingView!
     
     // MARK: Public properties
     
@@ -61,6 +62,9 @@ class FriendsViewController: UIViewController {
     private func initializeSetup() {
         service = FriendsServiceImpl()
         dataSource = FriendsTableViewDataSource(tableView: tableView)
+        loadingView = LoadingView()
+        view.addSubview(loadingView)
+        loadingView.frame = view.frame
 //        bottomViewMoveToButton(button: myFriendsButton)
     }
     
@@ -199,9 +203,10 @@ private extension FriendsViewController {
 
 extension FriendsViewController {
     func loadData() {
-        
+        showActivityIndicator()
         service.getFriends { [weak self] (friends, error) in
             guard let self = self else { return }
+            self.hideActivityIndicator()
             if let error = error {
                 self.showAlert(nil, andAlertMessage: error.errorDescription)
             }
