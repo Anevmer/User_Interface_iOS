@@ -19,6 +19,7 @@ class FriendsViewController: UIViewController {
     @IBOutlet weak var bottomLineWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var myFriendsButtonWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var searchFriendsButtonWidthConstraint: NSLayoutConstraint!
+    
     // MARK: Private properties
 
     private var isMyFriendSelected: Bool = true
@@ -26,6 +27,7 @@ class FriendsViewController: UIViewController {
     private var myFriends: [Entity] = []
     private var groupedUsers: [Int: [Entity]] = [:]
     private var sectionTitles: [String] = []
+    private var service: FriendsService!
     
     // MARK: Public properties
     
@@ -55,6 +57,7 @@ class FriendsViewController: UIViewController {
     // MARK: Private methods
     
     private func initializeSetup() {
+        service = FriendsServiceImpl()
 //        bottomViewMoveToButton(button: myFriendsButton)
     }
     
@@ -193,6 +196,18 @@ private extension FriendsViewController {
 
 extension FriendsViewController {
     func loadData() {
+        
+        service.getFriends { [weak self] (response, error) in
+            guard let self = self else { return }
+            if let error = error {
+                self.showAlert(nil, andAlertMessage: error.errorDescription)
+            }
+            else {
+                if let response = response {
+                    
+                }
+            }
+        }
  
         let  me = getMyProfile()
         navigationItem.title = me?.name

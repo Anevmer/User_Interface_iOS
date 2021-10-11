@@ -33,4 +33,11 @@ extension UIViewController {
         activityIndicator?.stopAnimating()
         activityIndicator?.removeFromSuperview()
     }
+    
+    func showAlert(_ alertTitle: String? = nil, andAlertMessage alertMessage: String? = nil, andButtonTitle buttonTitle: String? = "Ok", completion: ((UIAlertAction) -> Void)? = nil) {
+        let alertController = UIAlertController(title: alertTitle, message:
+            alertMessage, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: buttonTitle, style: .default, handler: completion))
+        present(alertController, animated: true, completion: nil)
+    }
 }

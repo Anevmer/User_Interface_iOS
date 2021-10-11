@@ -67,6 +67,10 @@
 		D88C56A526E95A8600D1B73E /* NewsModelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88C56A326E95A8600D1B73E /* NewsModelTableViewCell.swift */; };
 		D88C56A626E95A8600D1B73E /* NewsModelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D88C56A426E95A8600D1B73E /* NewsModelTableViewCell.xib */; };
 		D88C56A926E9603A00D1B73E /* NewsTableCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88C56A826E9603A00D1B73E /* NewsTableCellModel.swift */; };
+		D898E29B270EFDFC004D8A9B /* VKLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D898E29A270EFDFC004D8A9B /* VKLoginViewController.swift */; };
+		D898E2A1270F10C9004D8A9B /* FriendsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D898E2A0270F10C9004D8A9B /* FriendsService.swift */; };
+		D898E2A5270F10D7004D8A9B /* FriendsServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D898E2A4270F10D7004D8A9B /* FriendsServiceImpl.swift */; };
+		D898E2A8270F174F004D8A9B /* GetFriendsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D898E2A7270F174F004D8A9B /* GetFriendsResponse.swift */; };
 		D8BB233226D79F8500E3D4AF /* ViewController+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BB233126D79F8500E3D4AF /* ViewController+Additional.swift */; };
 /* End PBXBuildFile section */
 
@@ -135,6 +139,10 @@
 		D88C56A326E95A8600D1B73E /* NewsModelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModelTableViewCell.swift; sourceTree = "<group>"; };
 		D88C56A426E95A8600D1B73E /* NewsModelTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsModelTableViewCell.xib; sourceTree = "<group>"; };
 		D88C56A826E9603A00D1B73E /* NewsTableCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableCellModel.swift; sourceTree = "<group>"; };
+		D898E29A270EFDFC004D8A9B /* VKLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKLoginViewController.swift; sourceTree = "<group>"; };
+		D898E2A0270F10C9004D8A9B /* FriendsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsService.swift; sourceTree = "<group>"; };
+		D898E2A4270F10D7004D8A9B /* FriendsServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsServiceImpl.swift; sourceTree = "<group>"; };
+		D898E2A7270F174F004D8A9B /* GetFriendsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFriendsResponse.swift; sourceTree = "<group>"; };
 		D8BB233126D79F8500E3D4AF /* ViewController+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Additional.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -271,6 +279,7 @@
 			isa = PBXGroup;
 			children = (
 				D8545C8526C5AC240061F397 /* SignInViewController.swift */,
+				D898E29A270EFDFC004D8A9B /* VKLoginViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -356,6 +365,7 @@
 		D875BDAC26D39C0000DEDBEE /* Friends */ = {
 			isa = PBXGroup;
 			children = (
+				D898E29E270F10B1004D8A9B /* Service */,
 				D857C5FF26EE95B800E2181B /* FriendDetails */,
 				D875BDB326D39C3D00DEDBEE /* FriendPhotos */,
 				D875BDAE26D39C1B00DEDBEE /* Main */,
@@ -636,6 +646,24 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		D898E29E270F10B1004D8A9B /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				D898E29F270F10B8004D8A9B /* Response */,
+				D898E2A0270F10C9004D8A9B /* FriendsService.swift */,
+				D898E2A4270F10D7004D8A9B /* FriendsServiceImpl.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		D898E29F270F10B8004D8A9B /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				D898E2A7270F174F004D8A9B /* GetFriendsResponse.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
 		F0FA0CF5FD81FDDCCC942CEA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -780,9 +808,12 @@
 				D88C569426E943D800D1B73E /* Comment.swift in Sources */,
 				D88C569126E9428C00D1B73E /* NewsModel.swift in Sources */,
 				D857C5FD26EE824A00E2181B /* LoadingView.swift in Sources */,
+				D898E2A8270F174F004D8A9B /* GetFriendsResponse.swift in Sources */,
+				D898E2A1270F10C9004D8A9B /* FriendsService.swift in Sources */,
 				D875BDAA26D39A2200DEDBEE /* MainTabBarController.swift in Sources */,
 				D8545C6C26C5AA410061F397 /* ViewController.swift in Sources */,
 				D875BDC026D39E6500DEDBEE /* FriendTableViewCell.swift in Sources */,
+				D898E2A5270F10D7004D8A9B /* FriendsServiceImpl.swift in Sources */,
 				D8062E4627035CBA0082DBE9 /* BaseServiceError.swift in Sources */,
 				D875BDCF26D3AC2C00DEDBEE /* NavigationController.swift in Sources */,
 				D8545C9726C5BDA80061F397 /* TextField.swift in Sources */,
@@ -804,6 +835,7 @@
 				D8545C6A26C5AA410061F397 /* SceneDelegate.swift in Sources */,
 				D830A7E926D573E7005286D5 /* UserProfile.swift in Sources */,
 				D875BDE526D3B29D00DEDBEE /* CommunityTableCellModel.swift in Sources */,
+				D898E29B270EFDFC004D8A9B /* VKLoginViewController.swift in Sources */,
 				D8545C8E26C5B77E0061F397 /* UIColor.swift in Sources */,
 				D8062E4C27035D3A0082DBE9 /* BaseResponseError.swift in Sources */,
 				D875BDDF26D3B26300DEDBEE /* CommunityTableViewCell.swift in Sources */,
