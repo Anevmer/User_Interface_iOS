@@ -24,27 +24,29 @@
                                 <rect key="frame" x="8" y="6" width="48" height="48"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userAvatarPlaceholderIcon" translatesAutoresizingMaskIntoConstraints="NO" id="dx0-bL-uns">
-                                        <rect key="frame" x="4" y="4" width="40" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="40" id="QCp-s9-Wbw"/>
-                                            <constraint firstAttribute="height" constant="40" id="pCg-1w-StE"/>
-                                        </constraints>
+                                        <rect key="frame" x="2" y="2" width="44" height="44"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="dx0-bL-uns" secondAttribute="bottom" constant="4" id="3oG-HM-66W"/>
-                                    <constraint firstItem="dx0-bL-uns" firstAttribute="leading" secondItem="UmA-Gz-7Xf" secondAttribute="leading" constant="4" id="6Bx-UY-15D"/>
+                                    <constraint firstAttribute="bottom" secondItem="dx0-bL-uns" secondAttribute="bottom" constant="2" id="3oG-HM-66W"/>
+                                    <constraint firstItem="dx0-bL-uns" firstAttribute="leading" secondItem="UmA-Gz-7Xf" secondAttribute="leading" constant="2" id="6Bx-UY-15D"/>
                                     <constraint firstAttribute="height" constant="48" id="BIw-S1-qFD"/>
                                     <constraint firstAttribute="width" constant="48" id="C3P-2A-7BN"/>
-                                    <constraint firstItem="dx0-bL-uns" firstAttribute="top" secondItem="UmA-Gz-7Xf" secondAttribute="top" constant="4" id="awR-JS-7ab"/>
-                                    <constraint firstAttribute="trailing" secondItem="dx0-bL-uns" secondAttribute="trailing" constant="4" id="bHe-tF-hHg"/>
+                                    <constraint firstItem="dx0-bL-uns" firstAttribute="top" secondItem="UmA-Gz-7Xf" secondAttribute="top" constant="2" id="awR-JS-7ab"/>
+                                    <constraint firstAttribute="trailing" secondItem="dx0-bL-uns" secondAttribute="trailing" constant="2" id="bHe-tF-hHg"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ge-lF-uXi">
                                 <rect key="frame" x="72" y="20.5" width="237" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sjf-lg-hor">
+                                <rect key="frame" x="77" y="40" width="32.5" height="15"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                                <color key="textColor" systemColor="systemGrayColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -56,7 +58,9 @@
                             <constraint firstItem="7ge-lF-uXi" firstAttribute="centerY" secondItem="dx0-bL-uns" secondAttribute="centerY" id="cSo-qZ-xJH"/>
                             <constraint firstItem="7ge-lF-uXi" firstAttribute="leading" secondItem="UmA-Gz-7Xf" secondAttribute="trailing" constant="16" id="iVb-mC-HIm"/>
                             <constraint firstAttribute="bottom" secondItem="UmA-Gz-7Xf" secondAttribute="bottom" constant="6" id="jqW-lM-bnP"/>
+                            <constraint firstItem="sjf-lg-hor" firstAttribute="leading" secondItem="7ge-lF-uXi" secondAttribute="leading" constant="5" id="tcA-76-uhr"/>
                             <constraint firstItem="UmA-Gz-7Xf" firstAttribute="top" secondItem="E7O-bV-c1a" secondAttribute="top" constant="6" id="vkz-bY-Kqn"/>
+                            <constraint firstItem="sjf-lg-hor" firstAttribute="top" secondItem="7ge-lF-uXi" secondAttribute="bottom" id="xKw-h0-sAj"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -73,15 +77,16 @@
                     <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </userDefinedRuntimeAttribute>
                 <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                    <real key="value" value="3"/>
+                    <real key="value" value="2"/>
                 </userDefinedRuntimeAttribute>
                 <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                    <real key="value" value="0.59999999999999998"/>
+                    <real key="value" value="0.40000000000000002"/>
                 </userDefinedRuntimeAttribute>
             </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="avatarContainreView" destination="UmA-Gz-7Xf" id="vGQ-9F-1jS"/>
                 <outlet property="avatarImageView" destination="dx0-bL-uns" id="aY1-GR-ibq"/>
+                <outlet property="descriptionLabel" destination="sjf-lg-hor" id="jmV-Ox-rKy"/>
                 <outlet property="fullNameLabel" destination="7ge-lF-uXi" id="Fad-Sl-lzT"/>
                 <outlet property="roundedBackgroundView" destination="E7O-bV-c1a" id="ixm-iY-Heu"/>
             </connections>
@@ -92,6 +97,9 @@
         <image name="userAvatarPlaceholderIcon" width="90" height="90"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
