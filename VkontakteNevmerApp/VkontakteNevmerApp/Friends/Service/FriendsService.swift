@@ -11,5 +11,5 @@ import Alamofire
 protocol FriendsService {
     
     @discardableResult func getFriends(_ completion: @escaping (_ friends: [FriendModel]?, _ error: BaseServiceError?) -> Void) -> Request?
-    
+    @discardableResult func getAllPhotoFor(ownerId: Int, _ completion: @escaping (_ friends: [Photo]?, _ error: BaseServiceError?) -> Void) -> Request?
 }

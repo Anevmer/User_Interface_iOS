@@ -58,9 +58,6 @@ class FriendTableViewCell: UITableViewCell {
             avatarImageView.kf.indicatorType = .activity
             avatarImageView.kf.setImage(with: url)
         }
-        else if let avatarName = model.imageName {
-            avatarImageView.image = UIImage(named: avatarName)
-        }
         else {
             avatarImageView.image = UIImage(named: "userAvatarPlaceholderIcon")
         }

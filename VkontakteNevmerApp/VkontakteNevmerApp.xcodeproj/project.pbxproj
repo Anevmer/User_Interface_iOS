@@ -81,6 +81,11 @@
 		D898E2EA2714AE61004D8A9B /* CommunityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D898E2E92714AE61004D8A9B /* CommunityModel.swift */; };
 		D898E2ED2714B20D004D8A9B /* CommunitiesTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D898E2EC2714B20D004D8A9B /* CommunitiesTableViewDataSource.swift */; };
 		D8BB233226D79F8500E3D4AF /* ViewController+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BB233126D79F8500E3D4AF /* ViewController+Additional.swift */; };
+		D8F7532F2715A39100DB16B4 /* GetAllPhotosResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F7532E2715A39100DB16B4 /* GetAllPhotosResponse.swift */; };
+		D8F753322715A3DC00DB16B4 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F753312715A3DC00DB16B4 /* Photo.swift */; };
+		D8F753352715A58500DB16B4 /* LikeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F753342715A58500DB16B4 /* LikeModel.swift */; };
+		D8F753382715A65000DB16B4 /* PhotoSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F753372715A65000DB16B4 /* PhotoSize.swift */; };
+		D8F7533B2715A91000DB16B4 /* UserPhotoCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F7533A2715A91000DB16B4 /* UserPhotoCollectionViewDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -162,6 +167,11 @@
 		D898E2E92714AE61004D8A9B /* CommunityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityModel.swift; sourceTree = "<group>"; };
 		D898E2EC2714B20D004D8A9B /* CommunitiesTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunitiesTableViewDataSource.swift; sourceTree = "<group>"; };
 		D8BB233126D79F8500E3D4AF /* ViewController+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Additional.swift"; sourceTree = "<group>"; };
+		D8F7532E2715A39100DB16B4 /* GetAllPhotosResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllPhotosResponse.swift; sourceTree = "<group>"; };
+		D8F753312715A3DC00DB16B4 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		D8F753342715A58500DB16B4 /* LikeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeModel.swift; sourceTree = "<group>"; };
+		D8F753372715A65000DB16B4 /* PhotoSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSize.swift; sourceTree = "<group>"; };
+		D8F7533A2715A91000DB16B4 /* UserPhotoCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPhotoCollectionViewDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -473,6 +483,10 @@
 			children = (
 				D830A7FB26D588E5005286D5 /* UserPhotoCollectionCellModel.swift */,
 				D8400C1426F392AE00953E8D /* ImageViewZoom.swift */,
+				D8F753312715A3DC00DB16B4 /* Photo.swift */,
+				D8F753342715A58500DB16B4 /* LikeModel.swift */,
+				D8F753372715A65000DB16B4 /* PhotoSize.swift */,
+				D8F7533A2715A91000DB16B4 /* UserPhotoCollectionViewDataSource.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -685,6 +699,7 @@
 			isa = PBXGroup;
 			children = (
 				D898E2A7270F174F004D8A9B /* GetFriendsResponse.swift */,
+				D8F7532E2715A39100DB16B4 /* GetAllPhotosResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -859,6 +874,7 @@
 				D8545C6C26C5AA410061F397 /* ViewController.swift in Sources */,
 				D875BDC026D39E6500DEDBEE /* FriendTableViewCell.swift in Sources */,
 				D898E2A5270F10D7004D8A9B /* FriendsServiceImpl.swift in Sources */,
+				D8F753382715A65000DB16B4 /* PhotoSize.swift in Sources */,
 				D8062E4627035CBA0082DBE9 /* BaseServiceError.swift in Sources */,
 				D875BDCF26D3AC2C00DEDBEE /* NavigationController.swift in Sources */,
 				D8545C9726C5BDA80061F397 /* TextField.swift in Sources */,
@@ -872,12 +888,14 @@
 				D898E2C0271461E2004D8A9B /* WebClient.swift in Sources */,
 				D88C56A926E9603A00D1B73E /* NewsTableCellModel.swift in Sources */,
 				D875BDBC26D39CE700DEDBEE /* FriendsViewController.swift in Sources */,
+				D8F753322715A3DC00DB16B4 /* Photo.swift in Sources */,
 				D875BDC526D39EAA00DEDBEE /* Entity.swift in Sources */,
 				D898E2CB27149BD1004D8A9B /* Date+Addition.swift in Sources */,
 				D875BDFC26D3BF7500DEDBEE /* CommunitySearchViewController.swift in Sources */,
 				D8545C6826C5AA410061F397 /* AppDelegate.swift in Sources */,
 				D875BDC926D39EEA00DEDBEE /* FriendTableCellModel.swift in Sources */,
 				D830A7FC26D588E5005286D5 /* UserPhotoCollectionCellModel.swift in Sources */,
+				D8F7533B2715A91000DB16B4 /* UserPhotoCollectionViewDataSource.swift in Sources */,
 				D898E2ED2714B20D004D8A9B /* CommunitiesTableViewDataSource.swift in Sources */,
 				D8545C6A26C5AA410061F397 /* SceneDelegate.swift in Sources */,
 				D830A7E926D573E7005286D5 /* UserProfile.swift in Sources */,
@@ -885,12 +903,14 @@
 				D898E29B270EFDFC004D8A9B /* VKLoginViewController.swift in Sources */,
 				D8545C8E26C5B77E0061F397 /* UIColor.swift in Sources */,
 				D8062E4C27035D3A0082DBE9 /* BaseResponseError.swift in Sources */,
+				D8F753352715A58500DB16B4 /* LikeModel.swift in Sources */,
 				D898E2C327146363004D8A9B /* FriendModel.swift in Sources */,
 				D875BDDF26D3B26300DEDBEE /* CommunityTableViewCell.swift in Sources */,
 				D898E2E42714AD70004D8A9B /* CommunityServiceImpl.swift in Sources */,
 				D830A7ED26D5740A005286D5 /* Community.swift in Sources */,
 				D875BDEE26D3B79B00DEDBEE /* SettingsViewController.swift in Sources */,
 				D8400C4626F9063B00953E8D /* PushAnimation.swift in Sources */,
+				D8F7532F2715A39100DB16B4 /* GetAllPhotosResponse.swift in Sources */,
 				D8400C0D26F38D5200953E8D /* PhotoViewerViewController.swift in Sources */,
 				D8400C4226F9062F00953E8D /* PopAnimation.swift in Sources */,
 				D88C56A126E9594600D1B73E /* NewsViewController.swift in Sources */,
