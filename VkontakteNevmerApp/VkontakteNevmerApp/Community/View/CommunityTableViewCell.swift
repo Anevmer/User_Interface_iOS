@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 protocol CommunityTableViewCellDelegate: class {
     func communityTableViewCellMoreButton(_ cell: CommunityTableViewCell)
@@ -16,8 +17,10 @@ class CommunityTableViewCell: UITableViewCell {
     // MARK: Outlets
     
     @IBOutlet weak var roundedBackgroundView: UIView!
-    @IBOutlet weak var avataImageView: UIImageView!
+    @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var fullNameLabel: UILabel!
+    @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak var checkImageView: UIImageView!
     
     // MARK: Public properties
     
@@ -37,7 +40,7 @@ class CommunityTableViewCell: UITableViewCell {
     }
     
     @objc private func tapImageView() {
-        avataImageView.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+        avatarImageView.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
         UIView.animate(
             withDuration: 1.6,
             delay: 0,
@@ -45,7 +48,7 @@ class CommunityTableViewCell: UITableViewCell {
             initialSpringVelocity: 0.2,
             options: .curveEaseOut,
             animations: {
-                self.avataImageView.transform = CGAffineTransform(scaleX: 1, y: 1)
+                self.avatarImageView.transform = CGAffineTransform(scaleX: 1, y: 1)
             },
             completion: nil)
     }
@@ -56,8 +59,19 @@ class CommunityTableViewCell: UITableViewCell {
         if let model = entity as? CommunityTableCellModel {
             delegate = model.delegate
             fullNameLabel.text = model.fullName
-            avataImageView.image = UIImage(named: model.avatarName)
-            
+            avatarImageView.image = UIImage(named: model.avatarName)
+            statusLabel.text = model.status
+            checkImageView.isHidden = !model.isVerified
+            if let url = URL(string: model.avatarName) {
+                avatarImageView.kf.indicatorType = .activity
+                avatarImageView.kf.setImage(with: url)
+            }
+            else if model.avatarName != "" {
+                avatarImageView.image = UIImage(named: model.avatarName )
+            }
+            else {
+                avatarImageView.image = UIImage(named: "userAvatarPlaceholderIcon")
+            }
         }
     }
 
@@ -65,8 +79,9 @@ class CommunityTableViewCell: UITableViewCell {
     
     func applyStyle() {
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapImageView))
-        avataImageView.addGestureRecognizer(gestureRecognizer)
-        avataImageView.isUserInteractionEnabled = true
+        avatarImageView.addGestureRecognizer(gestureRecognizer)
+        avatarImageView.isUserInteractionEnabled = true
+        avatarImageView.layer.cornerRadius = avatarImageView.bounds.height / 2
         
         selectionStyle = .none
         roundedBackgroundView.layer.cornerRadius = 12

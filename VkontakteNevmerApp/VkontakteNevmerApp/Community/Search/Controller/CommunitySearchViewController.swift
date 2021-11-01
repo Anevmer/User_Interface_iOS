@@ -17,6 +17,8 @@ class CommunitySearchViewController: UIViewController {
     
     private var communities: [Entity] = []
     private var searchBar: UISearchBar!
+    private var service: CommunityService!
+    private var dataSource: CommunitiesTableViewDataSource!
     
     // MARK: Public properties
     
@@ -25,6 +27,7 @@ class CommunitySearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        initializeSetup()
         setupTableView()
         applyStyle()
         setupText()
@@ -35,10 +38,15 @@ class CommunitySearchViewController: UIViewController {
         super.viewWillAppear(animated)
         loadData()
     }
+    
+    private func initializeSetup() {
+        service = CommunityServiceImpl()
+        dataSource = CommunitiesTableViewDataSource(tableView: tableView)
+    }
         
     private func setupTableView() {
-        tableView.delegate = self
-        tableView.dataSource = self
+//        tableView.delegate = self
+//        tableView.dataSource = self
         let view = UIView(frame: CGRect(x: 16, y: 10, width: tableView.frame.width - 32, height: 50))
         searchBar = UISearchBar(frame: CGRect(x: 6, y: 0, width: view.frame.width - 16, height: 50))
         searchBar.delegate = self
@@ -48,8 +56,8 @@ class CommunitySearchViewController: UIViewController {
         view.addSubview(searchBar)
         tableView.tableHeaderView = view
         
-        let cell = UINib(nibName: "CommunityTableViewCell", bundle: nil)
-        tableView.register(cell, forCellReuseIdentifier: "CommunityTableViewCell")
+//        let cell = UINib(nibName: "CommunityTableViewCell", bundle: nil)
+//        tableView.register(cell, forCellReuseIdentifier: "CommunityTableViewCell")
     }
 }
 
@@ -104,19 +112,18 @@ extension CommunitySearchViewController: UITableViewDelegate {
 extension CommunitySearchViewController: CommunityTableViewCellDelegate {
     func communityTableViewCellMoreButton(_ cell: CommunityTableViewCell) {
         guard let indexPath = tableView.indexPath(for: cell) else { return }
-        let community = communities[indexPath.row] as! CommunityTableCellModel
+        let community = dataSource.data[indexPath.row] as! CommunityTableCellModel
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         alertController.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
         alertController.addAction(UIAlertAction(title: "Подписаться", style: .default, handler: { _ in
-            self.showActivityIndicator()
-            if addedCommunityToMyProfile(withCommunityId: community.id) {
-                self.hideActivityIndicator()
-                self.loadData()
-                print ("success")
-            }
-            else {
-                self.hideActivityIndicator()
-                print("error")
+            self.service.joinGroup(groupId: community.id) { [weak self] (response, error) in
+                guard let self = self else { return }
+                if let error = error {
+                    self.showAlert(nil, andAlertMessage: error.errorDescription)
+                }
+                else {
+                    self.navigationController?.popViewController(animated: true)
+                }
             }
         }))
         present(alertController, animated: true, completion: nil)
@@ -143,11 +150,25 @@ private extension CommunitySearchViewController {
 
 extension CommunitySearchViewController {
     func loadData(withSearchText searchText: String? = nil) {
-        var searchesCommunities = getOthersCommunities()
-        if let searchText = searchText {
-            searchesCommunities = searchesCommunities.filter({$0.name.contains(searchText)})
+        showActivityIndicator()
+        service.searchCommunities(searchText: searchText ?? " ") { [weak self] (communities, error) in
+            guard let self = self else { return }
+            self.hideActivityIndicator()
+            if let error = error {
+                self.showAlert(nil, andAlertMessage: error.errorDescription)
+            }
+            else {
+                if let communities = communities {
+                    self.dataSource.data = communities.map({CommunityTableCellModel($0, delegate: self)})
+                }
+            }
         }
-        communities = searchesCommunities.map({CommunityTableCellModel(community: $0, delegate: self)})
-        tableView.reloadData()
+        
+//        var searchesCommunities = getOthersCommunities()
+//        if let searchText = searchText {
+//            searchesCommunities = searchesCommunities.filter({$0.name.contains(searchText)})
+//        }
+//        communities = searchesCommunities.map({CommunityTableCellModel(community: $0, delegate: self)})
+//        tableView.reloadData()
     }
 }

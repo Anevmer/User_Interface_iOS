@@ -13,34 +13,20 @@ class FriendTableCellModel: Entity, TableViewCompatible {
     let fullName: String
     let firstName: String
     let surname: String
-    let imageName: String?
     let imageUrl: String?
     let age: String
-    let user: UserProfile?
+    let id: Int
     var isOnline: Bool
     var isMobile: Bool
     
-    init (user: UserProfile) {
-        self.user = user
-        self.fullName = user.name + " " + user.surname
-        self.imageName = user.avatarName == "" ? nil : user.avatarName
-        self.imageUrl = nil
-        self.firstName = user.name
-        self.surname = user.surname
-        isOnline = false
-        isMobile = false
-        age = ""
-    }
-    
     init (friend: FriendModel) {
+        id = friend.id ?? -1
         let name = friend.firstName ?? ""
         let surname = friend.lastName ?? ""
         self.firstName = name
         self.surname = surname
         fullName = name + " \(surname)"
         imageUrl = friend.photoUrl
-        user = nil
-        imageName = nil
         isOnline = friend.online == 1 ? true : false
         isMobile = friend.mobileOnline == 1 ? true : false
         let dateFormatter = DateFormatter(withFormat: "dd.MM.yyyy", locale: "ru")

@@ -21,53 +21,40 @@ class FriendPhotosViewController: UIViewController {
     // MARK: Private properties
     
     private var userPhotos: [Entity] = []
+    private var service: FriendsService!
+    private var photoDataSource: UserPhotoCollectionViewDataSource!
     
     // MARK: Public properties
     
     var fullName: String?
-    var user: UserProfile?
+    var userId: Int?
     
     // MARK: Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        initializeSetup()
         loadData()
-        setupCollectionView()
     }
     
     // MARK: Private methods
     
-    private func setupCollectionView() {
-        collectionView.dataSource = self
+    private func initializeSetup() {
+        service = FriendsServiceImpl()
+        photoDataSource = UserPhotoCollectionViewDataSource(collectionView: collectionView)
         collectionView.delegate = self
-        collectionView.register(UINib(nibName: "UserPhotoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "UserPhotoCollectionViewCell")
-    }
-}
-
-extension FriendPhotosViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let photos = user?.photoNames else { return 0 }
-        return photos.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UserPhotoCollectionViewCell", for: indexPath) as! UserPhotoCollectionViewCell
-        let photo = userPhotos[indexPath.item]
-        cell.configure(withEntity: photo)
-        
-        return cell
     }
 }
 
 extension FriendPhotosViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let viewerVC = UIStoryboard(name: "PhotoViewer", bundle: nil).instantiateViewController(withIdentifier: "PhotoViewerViewController") as! PhotoViewerViewController
-        viewerVC.photos = user?.photoNames ?? []
-        viewerVC.currentImageNumber = indexPath.item
-        viewerVC.modalPresentationStyle = .fullScreen
-        
-        present(viewerVC, animated: true, completion: nil)
+//        let viewerVC = UIStoryboard(name: "PhotoViewer", bundle: nil).instantiateViewController(withIdentifier: "PhotoViewerViewController") as! PhotoViewerViewController
+//        viewerVC.photos = user?.photoNames ?? []
+//        viewerVC.currentImageNumber = indexPath.item
+//        viewerVC.modalPresentationStyle = .fullScreen
+//        
+//        present(viewerVC, animated: true, completion: nil)
 //        navigationController?.pushViewController(viewerVC, animated: true)
     }
 }
@@ -76,15 +63,29 @@ extension FriendPhotosViewController: UICollectionViewDelegate {
 
 extension FriendPhotosViewController {
     func loadData() {
-        if let user = user {
-            fullNameLabel.text = user.name + " " + user.surname
-            avatarImageView.image = UIImage(named: user.avatarName)
-            lastOnlineLabel.text = "Был в сети давно..."
-            photoLabel.text = "ФОТОГРАФИИ \(user.photoNames.count)"
-            userPhotos = user.photoNames.map({UserPhotoCollectionCellModel(photoName: $0)})
-//            placeholderView.isHidden = userPhotos.count == 0 ? false : true
-            collectionView.reloadData()
+        showActivityIndicator()
+        guard let userId = userId else { return }
+        service.getAllPhotoFor(ownerId: userId) { [weak self] (photos, error) in
+            guard let self = self else { return }
+            self.hideActivityIndicator()
+            if let error = error {
+                self.showAlert(nil, andAlertMessage: error.errorDescription)
+            }
+            else {
+                if let photos = photos {
+                    
+                }
+            }
         }
+//        if let user = user {
+//            fullNameLabel.text = user.name + " " + user.surname
+//            avatarImageView.image = UIImage(named: user.avatarName)
+//            lastOnlineLabel.text = "Был в сети давно..."
+//            photoLabel.text = "ФОТОГРАФИИ \(user.photoNames.count)"
+//            userPhotos = user.photoNames.map({UserPhotoCollectionCellModel(photoName: $0)})
+//            placeholderView.isHidden = userPhotos.count == 0 ? false : true
+//            collectionView.reloadData()
+//        }
     }
 }
 

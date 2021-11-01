@@ -35,4 +35,29 @@ class FriendsServiceImpl: FriendsService {
             }
         }
     }
+    
+    func getAllPhotoFor(ownerId: Int, _ completion: @escaping (_ photos: [Photo]?, _ error: BaseServiceError?) -> Void) -> Request? {
+        guard let accessToken = UserManager.shared.accessToken else {
+            return nil
+        }
+        
+        let parameters: Parameters = [
+            "owner_id" : ownerId,
+            "access_token": accessToken,
+            "extended" : 1,
+            "photo_sizes": 0,
+            "count" : 20,
+            "v" : "5.131"
+         ]
+        
+        let webClient = WebClient<GetAllPhotosResponse>()
+        return webClient.request(path: "/photos.getAll", parameters: parameters) { (response, error) in
+            if let error = error {
+                completion(nil, error)
+            }
+            else {
+                completion(response?.items, nil)
+            }
+        }
+    }
 }
