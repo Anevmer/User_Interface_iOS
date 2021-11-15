@@ -16,23 +16,29 @@ class CommunityTableCellModel: Entity, TableViewCompatible {
     let id: Int
     let isVerified: Bool
     let status: String
-    
-    init(community: Community, delegate: CommunityTableViewCellDelegate) {
-        self.delegate = delegate
-        id = community.id
-        fullName = community.name
-        avatarName = community.avatarName
-        isVerified = false
-        status = ""
-    }
+    let communityModel: CommunityModel?
+    let realmCommunity: CommunityRealmModel?
     
     init(_ communityModel: CommunityModel, delegate: CommunityTableViewCellDelegate) {
         self.delegate = delegate
+        self.communityModel = communityModel
+        self.realmCommunity = nil
         id = communityModel.id ?? -1
         fullName = communityModel.name ?? ""
         isVerified = communityModel.verified == 1 ? true : false
         avatarName = communityModel.photoUrl ?? ""
         status = communityModel.status ?? ""
+    }
+    
+    init(realmCommunity: CommunityRealmModel, delegate: CommunityTableViewCellDelegate) {
+        self.delegate = delegate
+        self.communityModel = nil
+        self.realmCommunity = realmCommunity
+        id = realmCommunity.id
+        fullName = realmCommunity.name
+        isVerified = realmCommunity.verified == 1 ? true : false
+        avatarName = realmCommunity.photoUrl
+        status = realmCommunity.status
     }
     
     // MARK: TableViewCompatible
@@ -43,9 +49,9 @@ class CommunityTableCellModel: Entity, TableViewCompatible {
        var movable: Bool = false
        
        func cellForTableView(tableView: UITableView, atIndexPath indexPath: IndexPath) -> UITableViewCell {
-           let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! CommunityTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! CommunityTableViewCell
         cell.configure(withEntity: self)
-           
-           return cell
+        
+        return cell
        }
 }

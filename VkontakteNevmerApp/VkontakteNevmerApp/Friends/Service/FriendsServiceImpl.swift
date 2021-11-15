@@ -7,8 +7,17 @@
 
 import Foundation
 import Alamofire
+import RealmSwift
 
 class FriendsServiceImpl: FriendsService {
+    
+    private func saveToRealm(_ object: [Object]) {
+        do {
+            try RealmService.save(items: object)
+        } catch {
+            print (error)
+        }
+    }
     
     func getFriends(_ completion: @escaping (_ friends: [FriendModel]?, _ error: BaseServiceError?) -> Void) -> Request? {
         guard let accessToken = UserManager.shared.accessToken,
@@ -31,7 +40,13 @@ class FriendsServiceImpl: FriendsService {
                 completion(nil, error)
             }
             else {
-                completion(response?.items, nil)
+                if let friends = response?.items {
+                    
+                    let realmFrieds = friends.map({FriendRealmModel(friendModel: $0)})
+                    self.saveToRealm(realmFrieds)
+
+                    completion(friends, nil)
+                }
             }
         }
     }

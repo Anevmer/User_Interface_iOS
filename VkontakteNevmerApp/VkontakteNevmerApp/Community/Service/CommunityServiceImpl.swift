@@ -7,8 +7,26 @@
 
 import Foundation
 import Alamofire
+import RealmSwift
 
 class CommunityServiceImpl: CommunityService {
+    
+    private func saveToRealm(_ object: [Object]) {
+        do {
+            try RealmService.save(items: object)
+        } catch {
+            print (error)
+        }
+    }
+    
+//    private func deleteFromRealm(_ object: Object) {
+//        do {
+//            try RealmService.delete(object: CommunityRealmModel.Type)
+//        } catch {
+//            print (error)
+//        }
+//    }
+    
     func getCommunities(_ completion: @escaping (_ communities: [CommunityModel]?, _ error: BaseServiceError?) -> Void) -> Request? {
         guard let accessToken = UserManager.shared.accessToken,
               let userId = UserManager.shared.userId else {
@@ -30,7 +48,11 @@ class CommunityServiceImpl: CommunityService {
                 completion(nil, error)
             }
             else {
-                completion(response?.items, nil)
+                if let communities = response?.items {
+                    let realmCommunities = communities.map({CommunityRealmModel(communityModel: $0)})
+                    self.saveToRealm(realmCommunities)
+                    completion(communities, nil)
+                }
             }
         }
     }

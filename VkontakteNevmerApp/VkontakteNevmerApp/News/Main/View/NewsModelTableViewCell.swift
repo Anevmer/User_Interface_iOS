@@ -50,7 +50,9 @@ class NewsModelTableViewCell: UITableViewCell {
         authorNameLabel.text = model.authorName
         createDateLabel.text = model.createDateString
         titleLabel.text = model.title
-        contentImageView.isHidden = true
+        contentImageView.isHidden = model.imageUrlString == "" ? true : false
+        contentImageView.image = UIImage(named: model.imageUrlString)
+        
         likesCount = model.likesCount
         commentButton.setTitle("\(model.commentsCount)", for: [])
         

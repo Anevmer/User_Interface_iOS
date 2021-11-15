@@ -6,6 +6,11 @@
 //
 
 import UIKit
+import RealmSwift
+
+protocol CommunitySearchViewControllerDelegate: class {
+    func addedGroup(_ controller: CommunitySearchViewController)
+}
 
 class CommunitySearchViewController: UIViewController {
     
@@ -21,6 +26,8 @@ class CommunitySearchViewController: UIViewController {
     private var dataSource: CommunitiesTableViewDataSource!
     
     // MARK: Public properties
+    
+    weak var delegate: CommunitySearchViewControllerDelegate?
     
     // MARK: Lyfecycle
 
@@ -45,8 +52,7 @@ class CommunitySearchViewController: UIViewController {
     }
         
     private func setupTableView() {
-//        tableView.delegate = self
-//        tableView.dataSource = self
+
         let view = UIView(frame: CGRect(x: 16, y: 10, width: tableView.frame.width - 32, height: 50))
         searchBar = UISearchBar(frame: CGRect(x: 6, y: 0, width: view.frame.width - 16, height: 50))
         searchBar.delegate = self
@@ -55,9 +61,15 @@ class CommunitySearchViewController: UIViewController {
         searchBar.tintColor = .black
         view.addSubview(searchBar)
         tableView.tableHeaderView = view
-        
-//        let cell = UINib(nibName: "CommunityTableViewCell", bundle: nil)
-//        tableView.register(cell, forCellReuseIdentifier: "CommunityTableViewCell")
+
+    }
+    
+    private func addedToRealm(_ object: [Object]) {
+        do {
+            try RealmService.save(items: object)
+        } catch {
+            print (error)
+        }
     }
 }
 
@@ -122,6 +134,10 @@ extension CommunitySearchViewController: CommunityTableViewCellDelegate {
                     self.showAlert(nil, andAlertMessage: error.errorDescription)
                 }
                 else {
+                    if let communityModel = community.communityModel {
+                        let realmCommunity = CommunityRealmModel(communityModel: communityModel)
+                        self.addedToRealm([realmCommunity])
+                    }
                     self.navigationController?.popViewController(animated: true)
                 }
             }
