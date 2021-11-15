@@ -38,6 +38,25 @@ class FriendTableCellModel: Entity, TableViewCompatible {
         }
     }
     
+    init (realmFriend: FriendRealmModel) {
+        id = realmFriend.id 
+        let name = realmFriend.firstName 
+        let surname = realmFriend.lastName 
+        self.firstName = name
+        self.surname = surname
+        fullName = name + " \(surname)"
+        imageUrl = realmFriend.photoUrl
+        isOnline = realmFriend.online == 1 ? true : false
+        isMobile = realmFriend.mobileOnline == 1 ? true : false
+        let dateFormatter = DateFormatter(withFormat: "dd.MM.yyyy", locale: "ru")
+        if let birthDate = dateFormatter.date(from: realmFriend.birthday ) {
+            age = (birthDate.age).formattedAge()
+        }
+        else {
+            age = ""
+        }
+    }
+    
     // MARK: TableViewCompatible
         
         let reuseIdentifier: String = "FriendTableViewCell"

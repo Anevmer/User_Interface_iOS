@@ -7,6 +7,11 @@ PODS:
   - Kingfisher (6.3.1)
   - MGSwipeTableCell (1.6.11)
   - ObjectMapper (4.2.0)
+  - Realm (10.15.0):
+    - Realm/Headers (= 10.15.0)
+  - Realm/Headers (10.15.0)
+  - RealmSwift (10.15.0):
+    - Realm (= 10.15.0)
   - SVPullToRefresh (0.4.1)
   - SwiftValidator (4.0.0)
 
@@ -19,6 +24,7 @@ DEPENDENCIES:
   - Kingfisher
   - MGSwipeTableCell
   - ObjectMapper
+  - RealmSwift (~> 10)
   - SVPullToRefresh
   - SwiftValidator (from `https://github.com/jpotts18/SwiftValidator.git`, tag `4.2.0`)
 
@@ -32,6 +38,8 @@ SPEC REPOS:
     - Kingfisher
     - MGSwipeTableCell
     - ObjectMapper
+    - Realm
+    - RealmSwift
     - SVPullToRefresh
 
 EXTERNAL SOURCES:
@@ -53,9 +61,11 @@ SPEC CHECKSUMS:
   Kingfisher: 016c8b653a35add51dd34a3aba36b580041acc74
   MGSwipeTableCell: b804e4e450dee439c42250be90bd50458bf67fce
   ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
+  Realm: 13e805eb23d3eb8d8bb700d9cf9761f4b625b389
+  RealmSwift: 51b29bb4e19fe7322c8a599cf3494b8a08888ef1
   SVPullToRefresh: ba2e718695a43253d8bea6852d2960097dc15d8c
   SwiftValidator: 249b6b3ae3b294266c5b9de134d94f18f2d5aa47
 
-PODFILE CHECKSUM: 2ddcd65f552333dcb11deb0ae2adbbcd1d3d2042
+PODFILE CHECKSUM: e10e5c0b6e28dcc0a0bb8a061a286d7e951135e4
 
 COCOAPODS: 1.10.1
