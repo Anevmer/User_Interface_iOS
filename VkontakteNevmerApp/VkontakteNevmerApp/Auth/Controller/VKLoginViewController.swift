@@ -47,11 +47,15 @@ class VKLoginViewController: UIViewController {
         super.viewWillAppear(animated)
         initializeSetup()
     }
-
+    
+    // MARK: Actions
+    
     // MARK: Private methods
     
     private func initializeSetup() {
-
+        loadingView = LoadingView()
+        view.addSubview(loadingView)
+        loadingView.frame = view.frame
         webView.navigationDelegate = self
         if UserManager.shared.isAuthorized {
             showMain()
@@ -72,12 +76,11 @@ class VKLoginViewController: UIViewController {
 
 extension VKLoginViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
-        
+        loadingView.animate()
         guard let url = navigationResponse.response.url,
               url.path == "/blank.html",
               let fragment = url.fragment
         else { return decisionHandler(.allow) }
-        showActivityIndicator()
         let paramenters = fragment
             .components(separatedBy: "&")
             .map { $0.components(separatedBy: "=")}
@@ -88,8 +91,7 @@ extension VKLoginViewController: WKNavigationDelegate {
                 dict[key] = value
                 return dict
             }
-//        loadingView.stopAnimate()
-        hideActivityIndicator()
+        loadingView.stopAnimate()
         guard let token = paramenters["access_token"],
             let userIDString = paramenters["user_id"],
             let userId = Int(userIDString)

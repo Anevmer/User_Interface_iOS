@@ -14,5 +14,4 @@ target 'VkontakteNevmerApp' do
    pod 'InputMask'
    pod 'MGSwipeTableCell'
    pod 'SwiftValidator', :git => 'https://github.com/jpotts18/SwiftValidator.git', :tag => '4.2.0'
-   pod 'RealmSwift', '~>10'
 end

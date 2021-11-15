@@ -7,7 +7,6 @@
 
 import UIKit
 import CollectionAndTableViewCompatible
-import RealmSwift
 
 class FriendsViewController: UIViewController {
     
@@ -45,11 +44,6 @@ class FriendsViewController: UIViewController {
         setupTableView()
         applyStyle()
         setupText()
-        updateFriends()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         loadData()
     }
     
@@ -173,16 +167,6 @@ private extension FriendsViewController {
 
 extension FriendsViewController {
     func loadData() {
-
-        do {
-            let friends = try RealmService.load(typeOf: FriendRealmModel.self)
-            self.dataSource.data = friends.map({ FriendTableCellModel(realmFriend: $0)})
-        } catch {
-            self.showAlert(nil, andAlertMessage: error.localizedDescription)
-        }
-    }
-    
-    func updateFriends() {
         showActivityIndicator()
         service.getFriends { [weak self] (friends, error) in
             guard let self = self else { return }
@@ -191,8 +175,9 @@ extension FriendsViewController {
                 self.showAlert(nil, andAlertMessage: error.errorDescription)
             }
             else {
-                if let friends = friends, friends.count > 0 {
-                    self.loadData()
+                if let friends = friends {
+                 
+                    self.dataSource.data = friends.map({ FriendTableCellModel(friend: $0)})
                 }
             }
         }

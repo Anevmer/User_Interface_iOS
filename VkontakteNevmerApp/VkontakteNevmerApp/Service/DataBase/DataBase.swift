@@ -39,7 +39,7 @@ private var allCommunities = [
 
 private var allNews = [
     NewsModel(title: "Кот погладил сам себя!", description: "Никаких особенностей, просто взял и погладился о рядом стоящую стенку, ведь хозяева у него вечно занятые и на кота времени нет, вот и приходится бедняге самому о себе беспокоиться", imageUrlString: "", authorUserId: nil, authorCommunityId: 226),
-    NewsModel(title: "Новый кинчик", description: "Смотрим, оставляем комменты", imageUrlString: "photo1", authorUserId: nil, authorCommunityId: 225)
+    NewsModel(title: "Новый кинчик", description: "Смотрим, оставляем комменты", imageUrlString: "", authorUserId: nil, authorCommunityId: 225)
 
 ]
 

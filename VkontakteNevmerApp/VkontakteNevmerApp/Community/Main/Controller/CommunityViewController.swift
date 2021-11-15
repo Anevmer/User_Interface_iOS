@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import RealmSwift
 
 class CommunityViewController: UIViewController {
     
@@ -33,7 +32,7 @@ class CommunityViewController: UIViewController {
         initializeSetup()
         applyStyle()
         setupText()
-        updateGroups()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,7 +52,9 @@ class CommunityViewController: UIViewController {
     }
     
     private func setupTableView() {
-        
+//        tableView.delegate = self
+//        tableView.dataSource = self
+//
         let cell = UINib(nibName: "CommunityTableViewCell", bundle: nil)
         tableView.register(cell, forCellReuseIdentifier: "CommunityTableViewCell")
     }
@@ -104,19 +105,6 @@ extension CommunityViewController: CommunityTableViewCellDelegate {
                     self.showAlert(nil, andAlertMessage: error.errorDescription)
                 }
                 else {
-                    if let realmCommunity = community.realmCommunity {
-                        do {
-                            let realm = try Realm()
-                            
-                            if let object = realm.objects(CommunityRealmModel.self).filter("realmId = %@", realmCommunity.realmId).first {
-                                try realm.write {
-                                    realm.delete(object)
-                                }
-                            }
-                        } catch {
-                            print (error)
-                        }
-                    }
                     self.loadData()
                 }
             }
@@ -145,17 +133,6 @@ private extension CommunityViewController {
 
 extension CommunityViewController {
     func loadData() {
-
-        do {
-            let communities = try RealmService.load(typeOf: CommunityRealmModel.self)
-            self.placeholderView.isHidden = communities.count != 0
-            self.dataSource.data = communities.map({ CommunityTableCellModel(realmCommunity: $0, delegate: self)})
-        } catch {
-            self.showAlert(nil, andAlertMessage: error.localizedDescription)
-        }
-    }
-    
-    func updateGroups() {
         showActivityIndicator()
         service.getCommunities { [weak self] (communities, error) in
             guard let self = self else { return }
@@ -164,10 +141,16 @@ extension CommunityViewController {
                 self.showAlert(nil, andAlertMessage: error.errorDescription)
             }
             else {
-                if let communities = communities, communities.count > 0 {
-                    self.loadData()
+                if let communities = communities {
+                    self.placeholderView.isHidden = communities.count != 0
+                    self.dataSource.data = communities.map({CommunityTableCellModel($0, delegate: self)})
                 }
             }
         }
+        
+//        let myCommunities = getMyCommunities()
+//        communities = myCommunities.map({CommunityTableCellModel(community: $0, delegate: self)})
+//        placeholderView.isHidden = communities.count != 0
+//        tableView.reloadData()
     }
 }

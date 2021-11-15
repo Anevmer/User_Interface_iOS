@@ -59,9 +59,6 @@
 		D875BDF426D3BD4800DEDBEE /* FriendPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D875BDF326D3BD4800DEDBEE /* FriendPhotosViewController.swift */; };
 		D875BDF926D3BF6900DEDBEE /* CommunitySearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D875BDF826D3BF6900DEDBEE /* CommunitySearch.storyboard */; };
 		D875BDFC26D3BF7500DEDBEE /* CommunitySearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D875BDFB26D3BF7500DEDBEE /* CommunitySearchViewController.swift */; };
-		D87C9EA0272FF96C0089DFA9 /* FriendRealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87C9E9F272FF96C0089DFA9 /* FriendRealmModel.swift */; };
-		D87C9EA4272FFCC20089DFA9 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87C9EA3272FFCC20089DFA9 /* RealmService.swift */; };
-		D87C9EA7273021C00089DFA9 /* CommunityRealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87C9EA6273021C00089DFA9 /* CommunityRealmModel.swift */; };
 		D88C569126E9428C00D1B73E /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88C569026E9428C00D1B73E /* NewsModel.swift */; };
 		D88C569426E943D800D1B73E /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88C569326E943D800D1B73E /* Comment.swift */; };
 		D88C569E26E958D700D1B73E /* News.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D88C569D26E958D700D1B73E /* News.storyboard */; };
@@ -148,9 +145,6 @@
 		D875BDF326D3BD4800DEDBEE /* FriendPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendPhotosViewController.swift; sourceTree = "<group>"; };
 		D875BDF826D3BF6900DEDBEE /* CommunitySearch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CommunitySearch.storyboard; sourceTree = "<group>"; };
 		D875BDFB26D3BF7500DEDBEE /* CommunitySearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunitySearchViewController.swift; sourceTree = "<group>"; };
-		D87C9E9F272FF96C0089DFA9 /* FriendRealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRealmModel.swift; sourceTree = "<group>"; };
-		D87C9EA3272FFCC20089DFA9 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
-		D87C9EA6273021C00089DFA9 /* CommunityRealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityRealmModel.swift; sourceTree = "<group>"; };
 		D88C569026E9428C00D1B73E /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
 		D88C569326E943D800D1B73E /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		D88C569D26E958D700D1B73E /* News.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = News.storyboard; sourceTree = "<group>"; };
@@ -239,21 +233,6 @@
 			path = DataBase;
 			sourceTree = "<group>";
 		};
-		D83CCB512741AC900023C0FF /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				D83CCB522741AC980023C0FF /* Response */,
-			);
-			path = Service;
-			sourceTree = "<group>";
-		};
-		D83CCB522741AC980023C0FF /* Response */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Response;
-			sourceTree = "<group>";
-		};
 		D8400C4026F9061C00953E8D /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -310,7 +289,6 @@
 				D875BDC326D39E9700DEDBEE /* Model */,
 				D8545C8B26C5B7430061F397 /* Extensions */,
 				D8545C8A26C5B73C0061F397 /* View */,
-				D87C9EA2272FFCA90089DFA9 /* RealmService */,
 				D8062E4027035BCF0082DBE9 /* WebClient */,
 			);
 			path = Base;
@@ -458,7 +436,6 @@
 				D875BDC826D39EEA00DEDBEE /* FriendTableCellModel.swift */,
 				D898E2C227146363004D8A9B /* FriendModel.swift */,
 				D898E2C527147628004D8A9B /* FriendsTableViewDataSource.swift */,
-				D87C9E9F272FF96C0089DFA9 /* FriendRealmModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -603,7 +580,6 @@
 				D875BDE426D3B29D00DEDBEE /* CommunityTableCellModel.swift */,
 				D898E2E92714AE61004D8A9B /* CommunityModel.swift */,
 				D898E2EC2714B20D004D8A9B /* CommunitiesTableViewDataSource.swift */,
-				D87C9EA6273021C00089DFA9 /* CommunityRealmModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -649,18 +625,9 @@
 			path = Storyboard;
 			sourceTree = "<group>";
 		};
-		D87C9EA2272FFCA90089DFA9 /* RealmService */ = {
-			isa = PBXGroup;
-			children = (
-				D87C9EA3272FFCC20089DFA9 /* RealmService.swift */,
-			);
-			path = RealmService;
-			sourceTree = "<group>";
-		};
 		D88C569626E9585C00D1B73E /* News */ = {
 			isa = PBXGroup;
 			children = (
-				D83CCB512741AC900023C0FF /* Service */,
 				D88C569826E9587900D1B73E /* Details */,
 				D88C569726E9586C00D1B73E /* Main */,
 			);
@@ -905,7 +872,6 @@
 				D898E2E72714AE03004D8A9B /* GetCommunitiesResponse.swift in Sources */,
 				D875BDAA26D39A2200DEDBEE /* MainTabBarController.swift in Sources */,
 				D8545C6C26C5AA410061F397 /* ViewController.swift in Sources */,
-				D87C9EA0272FF96C0089DFA9 /* FriendRealmModel.swift in Sources */,
 				D875BDC026D39E6500DEDBEE /* FriendTableViewCell.swift in Sources */,
 				D898E2A5270F10D7004D8A9B /* FriendsServiceImpl.swift in Sources */,
 				D8F753382715A65000DB16B4 /* PhotoSize.swift in Sources */,
@@ -919,7 +885,6 @@
 				D8400C1526F392AE00953E8D /* ImageViewZoom.swift in Sources */,
 				D88C56A526E95A8600D1B73E /* NewsModelTableViewCell.swift in Sources */,
 				D875BDDA26D3AF0C00DEDBEE /* CommunityViewController.swift in Sources */,
-				D87C9EA7273021C00089DFA9 /* CommunityRealmModel.swift in Sources */,
 				D898E2C0271461E2004D8A9B /* WebClient.swift in Sources */,
 				D88C56A926E9603A00D1B73E /* NewsTableCellModel.swift in Sources */,
 				D875BDBC26D39CE700DEDBEE /* FriendsViewController.swift in Sources */,
@@ -951,7 +916,6 @@
 				D88C56A126E9594600D1B73E /* NewsViewController.swift in Sources */,
 				D830A7F726D57970005286D5 /* DataBase.swift in Sources */,
 				D898E2E02714AD5A004D8A9B /* CommunityService.swift in Sources */,
-				D87C9EA4272FFCC20089DFA9 /* RealmService.swift in Sources */,
 				D898E2C627147628004D8A9B /* FriendsTableViewDataSource.swift in Sources */,
 				D898E2CE27149E98004D8A9B /* Int+Addition.swift in Sources */,
 				D830A7E226D57211005286D5 /* UserPhotoCollectionViewCell.swift in Sources */,
