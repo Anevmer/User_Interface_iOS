@@ -6,14 +6,15 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        setupKeyboardManager()
+
         return true
     }
 
@@ -34,3 +35,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+// MARK: Extension for keyboard manager
+
+private extension AppDelegate {
+    
+    func setupKeyboardManager() {
+        IQKeyboardManager.shared.enable = true
+//        IQKeyboardManager.shared.disabledToolbarClasses.append(SignInViewController.self)
+        
+    }
+}

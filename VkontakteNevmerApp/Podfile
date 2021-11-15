@@ -1,0 +1,17 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '10.0'
+use_frameworks!
+
+
+target 'VkontakteNevmerApp' do
+   pod 'IQKeyboardManagerSwift'
+   pod 'Alamofire'
+   pod 'ActiveLabel'
+   pod 'ObjectMapper'
+   pod 'Kingfisher'
+   pod 'SVPullToRefresh'
+   pod 'CollectionAndTableViewCompatible'
+   pod 'InputMask'
+   pod 'MGSwipeTableCell'
+   pod 'SwiftValidator', :git => 'https://github.com/jpotts18/SwiftValidator.git', :tag => '4.2.0'
+end

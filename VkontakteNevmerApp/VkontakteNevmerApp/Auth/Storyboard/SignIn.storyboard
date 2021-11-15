@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0di-kt-Afv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uNa-Iz-Y9R">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -43,66 +43,18 @@
                                                             <constraint firstItem="8nu-ig-iTl" firstAttribute="width" secondItem="4w0-YV-Prr" secondAttribute="width" multiplier="0.5" id="roL-Fd-hAv"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c0X-qr-Fex">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c0X-qr-Fex" customClass="TextField" customModule="VkontakteNevmerApp" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="169" width="288" height="60"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Логин" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zhE-OI-ewX">
-                                                                <rect key="frame" x="0.0" y="0.0" width="48.5" height="20"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="20" id="Mdx-yS-ZuE"/>
-                                                                </constraints>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IPC-wb-zgt" customClass="TextField" customModule="VkontakteNevmerApp" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="20" width="288" height="40"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="40" id="GaJ-Wl-VpP"/>
-                                                                </constraints>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits"/>
-                                                            </textField>
-                                                        </subviews>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstItem="zhE-OI-ewX" firstAttribute="top" secondItem="c0X-qr-Fex" secondAttribute="top" id="28x-wX-48W"/>
-                                                            <constraint firstItem="IPC-wb-zgt" firstAttribute="top" secondItem="zhE-OI-ewX" secondAttribute="bottom" id="51W-gp-uFg"/>
-                                                            <constraint firstItem="zhE-OI-ewX" firstAttribute="leading" secondItem="c0X-qr-Fex" secondAttribute="leading" id="BP2-nU-Opp"/>
-                                                            <constraint firstItem="IPC-wb-zgt" firstAttribute="leading" secondItem="c0X-qr-Fex" secondAttribute="leading" id="T45-zR-kE7"/>
-                                                            <constraint firstAttribute="bottom" secondItem="IPC-wb-zgt" secondAttribute="bottom" id="cK7-Mq-6hC"/>
-                                                            <constraint firstAttribute="trailing" secondItem="IPC-wb-zgt" secondAttribute="trailing" id="iYT-vZ-lAE"/>
+                                                            <constraint firstAttribute="height" constant="60" id="jae-23-NM7"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rDa-Pd-VJX">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rDa-Pd-VJX" customClass="TextField" customModule="VkontakteNevmerApp" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="254" width="288" height="60"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Пароль" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="58K-zR-Hjh">
-                                                                <rect key="frame" x="0.0" y="0.0" width="59" height="20"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="20" id="mKW-P0-465"/>
-                                                                </constraints>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="99s-ww-ZYb" customClass="TextField" customModule="VkontakteNevmerApp" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="20" width="288" height="40"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="40" id="Q05-ou-0xs"/>
-                                                                </constraints>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits"/>
-                                                            </textField>
-                                                        </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
-                                                            <constraint firstItem="58K-zR-Hjh" firstAttribute="top" secondItem="rDa-Pd-VJX" secondAttribute="top" id="3iS-SM-z5c"/>
-                                                            <constraint firstItem="58K-zR-Hjh" firstAttribute="leading" secondItem="rDa-Pd-VJX" secondAttribute="leading" id="C1a-gk-Y7a"/>
-                                                            <constraint firstAttribute="bottom" secondItem="99s-ww-ZYb" secondAttribute="bottom" id="Dak-xo-8dR"/>
-                                                            <constraint firstItem="99s-ww-ZYb" firstAttribute="top" secondItem="58K-zR-Hjh" secondAttribute="bottom" id="OtJ-jz-6SN"/>
-                                                            <constraint firstAttribute="trailing" secondItem="99s-ww-ZYb" secondAttribute="trailing" id="pL2-Lr-6fg"/>
-                                                            <constraint firstItem="99s-ww-ZYb" firstAttribute="leading" secondItem="rDa-Pd-VJX" secondAttribute="leading" id="vy3-7k-mxX"/>
+                                                            <constraint firstAttribute="height" constant="60" id="h2z-ao-v70"/>
                                                         </constraints>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tps-5t-w72" customClass="PrimaryButton" customModule="VkontakteNevmerApp" customModuleProvider="target">
@@ -159,10 +111,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="5HO-Sz-kmo"/>
                     <connections>
-                        <outlet property="loginTextField" destination="IPC-wb-zgt" id="9ST-EO-kFJ"/>
-                        <outlet property="loginTitleLabel" destination="zhE-OI-ewX" id="Tfb-Bj-7gR"/>
-                        <outlet property="passwordTextField" destination="99s-ww-ZYb" id="DFV-Ir-aWe"/>
-                        <outlet property="passwordTitleLabel" destination="58K-zR-Hjh" id="emi-ep-TZv"/>
+                        <outlet property="loginTextField" destination="c0X-qr-Fex" id="b0B-6R-Hve"/>
+                        <outlet property="mainStackView" destination="ECl-dM-wjY" id="76d-gH-veE"/>
+                        <outlet property="passwordTextField" destination="rDa-Pd-VJX" id="pga-Sc-iSN"/>
                         <outlet property="signInButton" destination="Tps-5t-w72" id="cvq-fM-690"/>
                         <outlet property="signUpButton" destination="tQE-yT-clq" id="A4S-Ps-dXj"/>
                     </connections>
@@ -170,6 +121,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p46-5P-TKY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="138.75" y="-94.014084507042256"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="L6B-1I-hRC">
+            <objects>
+                <viewController storyboardIdentifier="VKLoginViewController" id="KIS-DC-9Ae" customClass="VKLoginViewController" customModule="VkontakteNevmerApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ctG-LV-SM0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wPb-JL-ocd">
+                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Sle-uc-2tN"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Sle-uc-2tN" firstAttribute="trailing" secondItem="wPb-JL-ocd" secondAttribute="trailing" id="UB2-nq-E12"/>
+                            <constraint firstItem="wPb-JL-ocd" firstAttribute="top" secondItem="Sle-uc-2tN" secondAttribute="top" id="qpY-DG-vpe"/>
+                            <constraint firstItem="Sle-uc-2tN" firstAttribute="bottom" secondItem="wPb-JL-ocd" secondAttribute="bottom" id="vv7-oG-wsu"/>
+                            <constraint firstItem="wPb-JL-ocd" firstAttribute="leading" secondItem="Sle-uc-2tN" secondAttribute="leading" id="zcV-rr-uvH"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="64f-XP-JDX"/>
+                    <connections>
+                        <outlet property="webView" destination="wPb-JL-ocd" id="h8N-hv-UTV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LLZ-Ut-Cgx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139" y="619"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Nfi-mT-sbC">
@@ -188,6 +174,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0VO-sp-DhQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-858.75" y="-94.014084507042256"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="HgQ-MF-3Qa">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uNa-Iz-Y9R" customClass="NavigationController" customModule="VkontakteNevmerApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Rxm-Bk-2bg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="KIS-DC-9Ae" kind="relationship" relationship="rootViewController" id="lZv-rs-Fc9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HJo-pp-WmN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-859" y="619"/>
         </scene>
     </scenes>
     <resources>

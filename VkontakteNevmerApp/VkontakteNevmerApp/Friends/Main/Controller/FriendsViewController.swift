@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CollectionAndTableViewCompatible
 
 class FriendsViewController: UIViewController {
     
@@ -19,13 +20,18 @@ class FriendsViewController: UIViewController {
     @IBOutlet weak var bottomLineWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var myFriendsButtonWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var searchFriendsButtonWidthConstraint: NSLayoutConstraint!
+    
     // MARK: Private properties
 
     private var isMyFriendSelected: Bool = true
 //    private var selectedUs
-    private var myFriends: [Entity] = []
+//    private var myFriends: [Entity] = []
     private var groupedUsers: [Int: [Entity]] = [:]
     private var sectionTitles: [String] = []
+    private var service: FriendsService!
+    private var myFriends: [TableViewCompatible] = []
+    private var dataSource: FriendsTableViewDataSource!
+    private var loadingView: LoadingView!
     
     // MARK: Public properties
     
@@ -39,7 +45,6 @@ class FriendsViewController: UIViewController {
         applyStyle()
         setupText()
         loadData()
-        
     }
     
     // MARK: Actions
@@ -55,17 +60,18 @@ class FriendsViewController: UIViewController {
     // MARK: Private methods
     
     private func initializeSetup() {
+        service = FriendsServiceImpl()
+        dataSource = FriendsTableViewDataSource(tableView: tableView)
+        loadingView = LoadingView()
+        view.addSubview(loadingView)
+        loadingView.frame = view.frame
 //        bottomViewMoveToButton(button: myFriendsButton)
     }
     
     private func setupTableView() {
         tableView.delegate = self
-        tableView.dataSource = self
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 20))
         tableView.tableHeaderView = headerView
-        
-        let cell = UINib(nibName: "FriendTableViewCell", bundle: nil)
-        tableView.register(cell, forCellReuseIdentifier: "FriendTableViewCell")
     }
     
     private func bottomViewMoveToButton(button: UIButton) {
@@ -99,45 +105,13 @@ class FriendsViewController: UIViewController {
     }
 }
 
-extension FriendsViewController: UITableViewDataSource {
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return sectionTitles.count
-//        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let items = groupedUsers[section] {
-            return items.count
-        }
-
-        return 0
-
-//        return users.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        guard let items = groupedUsers[indexPath.section] else {
-            return UITableViewCell()
-            
-        }
-        let item = items[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FriendTableViewCell", for: indexPath) as! FriendTableViewCell
-        cell.configure(withEntity: item)
-        
-        return cell
-
-    }
-}
-
 extension FriendsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let items = groupedUsers[indexPath.section] {
+        if let items = dataSource.dataWithSections[indexPath.section] {
             let friend = items[indexPath.row] as! FriendTableCellModel
             let friendPhotoVC = UIStoryboard(name: "FriendPhotos", bundle: nil).instantiateViewController(withIdentifier: "FriendPhotosViewController") as! FriendPhotosViewController
-            friendPhotoVC.user = friend.user
+            friendPhotoVC.userId = friend.id
             navigationController?.pushViewController(friendPhotoVC, animated: true)
         }
     }
@@ -148,7 +122,7 @@ extension FriendsViewController: UITableViewDelegate {
         headerView.backgroundColor = .white50
         titleLabel.textColor = .black
         titleLabel.font = UIFont.systemFont(ofSize: 15, weight: .bold)
-        titleLabel.text = sectionTitles[section]
+        titleLabel.text = dataSource.sectionTitles[section]
         headerView.addSubview(titleLabel)
 
         return headerView
@@ -193,41 +167,19 @@ private extension FriendsViewController {
 
 extension FriendsViewController {
     func loadData() {
- 
-        let  me = getMyProfile()
-        navigationItem.title = me?.name
-        let friends = getMyFriends()
-        
-        self.myFriends = friends.map{FriendTableCellModel(user: $0)}
-        var characters: [String.Element] = []
-        self.sectionTitles.removeAll()
-        
-        for friend in friends {
-            if let firstSurnameCharacter = friend.surname.first {
-                if !characters.contains(firstSurnameCharacter) {
-                    characters.append(firstSurnameCharacter)
+        showActivityIndicator()
+        service.getFriends { [weak self] (friends, error) in
+            guard let self = self else { return }
+            self.hideActivityIndicator()
+            if let error = error {
+                self.showAlert(nil, andAlertMessage: error.errorDescription)
+            }
+            else {
+                if let friends = friends {
+                 
+                    self.dataSource.data = friends.map({ FriendTableCellModel(friend: $0)})
                 }
             }
         }
-        
-        characters.sort { $0 < $1 }
-        
-        var i = 0
-        var groupedUsers: [Int: [Entity]] = [:]
-        while i < characters.count {
-            let character = characters[i]
-            var characterUsers: [Entity] = []
-            for friend in friends {
-                if let userCharacter = friend.surname.first, userCharacter == character {
-                    characterUsers.append(FriendTableCellModel(user: friend))
-                }
-            }
-            groupedUsers[i] = characterUsers
-            self.sectionTitles.append(String.init(character))
-            i += 1
-        }
-        
-        self.groupedUsers = groupedUsers
-        tableView.reloadData()
     }
 }
